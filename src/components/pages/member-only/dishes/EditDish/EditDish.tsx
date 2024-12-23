@@ -19,32 +19,32 @@ const EditDish = () => {
   return (
     <div>
       <h2>Edit Dish</h2>
-      <form onSubmit={handleSubmit}>
+      <form method="post" action="" onSubmit={handleSubmit}>
         <div>
-          <label>Name:</label>
+          <label htmlFor="dish_name">Dish Name:</label>
           <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+        type="text"
+        id="dish_name"
+        name="dish_name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
           />
         </div>
+        <br />
         <div>
-          <label>Description:</label>
+          <label htmlFor="price">Price:</label>
           <input
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+        type="number"
+        id="price"
+        name="price"
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
+        required
           />
         </div>
-        <div>
-          <label>Price:</label>
-          <input
-            type="text"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          />
-        </div>
-        <button type="submit">Save</button>
+        <br />
+        <input type="submit" value="Update Dish" />
       </form>
     </div>
   );
