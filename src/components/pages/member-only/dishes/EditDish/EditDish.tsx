@@ -1,32 +1,19 @@
-// src/components/EditDish/EditDish.tsx
-
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getDish, updateDish } from '../../api/dishes';
+import React, { useState } from 'react';
 
 const EditDish = () => {
-  const { id } = useParams();
-  const [dish, setDish] = useState(null);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
 
-  useEffect(() => {
-    const fetchDish = async () => {
-      const fetchedDish = await getDish(id);
-      setDish(fetchedDish);
-      setName(fetchedDish.name);
-      setDescription(fetchedDish.description);
-      setPrice(fetchedDish.price);
-    };
+  interface DishForm {
+    name: string;
+    description: string;
+    price: string;
+  }
 
-    fetchDish();
-  }, [id]);
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const updatedDish = { ...dish, name, description, price };
-    await updateDish(id, updatedDish);
+    // Handle form submission logic here
   };
 
   return (

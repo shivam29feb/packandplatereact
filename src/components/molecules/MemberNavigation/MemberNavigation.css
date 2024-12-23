@@ -1,0 +1,25 @@
+.member-navigation {
+  background-color: #343a40;
+  padding: 10px;
+}
+
+.member-navigation ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.member-navigation li {
+  margin: 0 10px;
+}
+
+.member-navigation a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.member-navigation a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,25 @@
+.public-navigation {
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+.public-navigation ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.public-navigation li {
+  margin: 0 10px;
+}
+
+.public-navigation a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.public-navigation a:hover {
+  text-decoration: underline;
+}

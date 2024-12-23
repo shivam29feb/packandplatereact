@@ -1,0 +1,6 @@
+
+<?php
+// ...existing code...
+// Code for deleting a dish
+// ...existing code...
+?>
