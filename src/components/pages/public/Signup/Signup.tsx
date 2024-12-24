@@ -22,7 +22,7 @@ const Signup: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await signup(formData.email, formData.password) as { message: string };
+            const response = await signup(formData.username, formData.email, formData.password) as { message: string };
             setMessage(response.message);
             navigate('/login');
         } catch (error) {
