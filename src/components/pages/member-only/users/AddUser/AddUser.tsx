@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AddUser.module.css';
 
 const AddUser: React.FC = () => {
     const [name, setName] = useState('');

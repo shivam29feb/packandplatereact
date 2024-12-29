@@ -1,5 +1,6 @@
 import React from 'react';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
+import './Home.module.css';
 
 const Home = () => {
   return (

@@ -1,6 +1,7 @@
 // src/components/ViewDish.tsx
 
 import React from 'react';
+import './ViewDish.module.css';
 
 const ViewDish = () => {
   return (

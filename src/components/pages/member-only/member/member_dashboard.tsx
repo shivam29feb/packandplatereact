@@ -1,5 +1,5 @@
 import React from 'react';
-import './member_dashboard.css';
+import './member_dashboard.module.css';
 
 const MemberDashboard: React.FC = () => {
     return (

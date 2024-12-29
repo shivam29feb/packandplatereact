@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './PublicNavigation.css';
+import styles from './PublicNavigation.module.css';
 
 const PublicNavigation: React.FC = () => {
   return (
-    <nav className="public-navigation">
+    <nav className={styles.publicNavigation}>
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>

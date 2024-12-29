@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './MemberNavigation.css';
+import styles from './MemberNavigation.module.css';
 
 const MemberNavigation: React.FC = () => {
   return (
-    <nav className="member-navigation">
+    <nav className={styles.memberNavigation}>
       <ul>
         <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/profile">Profile</Link></li>

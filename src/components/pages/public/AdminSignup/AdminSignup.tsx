@@ -1,5 +1,5 @@
 import React from 'react';
-import './AdminSignup.css';
+import './AdminSignup.module.css';
 
 const AdminSignup: React.FC = () => {
   return (

@@ -1,9 +1,9 @@
-.public-navigation {
-  background-color: #f8f9fa;
+.memberNavigation {
+  background-color: #343a40;
   padding: 10px;
 }
 
-.public-navigation ul {
+.memberNavigation ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -11,15 +11,15 @@
   justify-content: space-around;
 }
 
-.public-navigation li {
+.memberNavigation li {
   margin: 0 10px;
 }
 
-.public-navigation a {
+.memberNavigation a {
   text-decoration: none;
-  color: #007bff;
+  color: #ffffff;
 }
 
-.public-navigation a:hover {
+.memberNavigation a:hover {
   text-decoration: underline;
 }

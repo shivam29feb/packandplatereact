@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.module.css';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import Home from './components/pages/public/Home/Home';
 import AppRoutes from './Routes/Routes';

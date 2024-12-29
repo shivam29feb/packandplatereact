@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './AddDish.module.css';
 // ...existing code...
 
 const AddDish = () => {

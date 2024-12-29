@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './EditDish.module.css';
 
 const EditDish = () => {
   const [name, setName] = useState('');
@@ -23,24 +24,24 @@ const EditDish = () => {
         <div>
           <label htmlFor="dish_name">Dish Name:</label>
           <input
-        type="text"
-        id="dish_name"
-        name="dish_name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
+            type="text"
+            id="dish_name"
+            name="dish_name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
           />
         </div>
         <br />
         <div>
           <label htmlFor="price">Price:</label>
           <input
-        type="number"
-        id="price"
-        name="price"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-        required
+            type="number"
+            id="price"
+            name="price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
           />
         </div>
         <br />
