@@ -7,6 +7,7 @@ import './Home.module.css';
 const Home = () => {
   return (
     <div>
+      
       <PublicNavigation />
       <section className="hero">
         <h2>Start Your Culinary Journey</h2>
