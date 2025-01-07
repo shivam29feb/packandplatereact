@@ -1,6 +1,8 @@
 import React from 'react';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
+import Footer from '../../../organisms/Footer/Footer';
 import './Home.module.css';
+
 
 const Home = () => {
   return (
@@ -50,6 +52,7 @@ const Home = () => {
           <button>Learn More</button>
         </div>
       </section>    
+      <Footer />
     </div>
   );
 };

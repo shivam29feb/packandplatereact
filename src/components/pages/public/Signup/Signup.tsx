@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signup } from '../../../../services/userService';
 import styles from './Signup.module.css';
+import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
 
 const Signup: React.FC = () => {
     const navigate = useNavigate();
@@ -44,6 +45,7 @@ const Signup: React.FC = () => {
 
     return (
         <div className={styles.signupContainer}>
+            <PublicNavigation />
             <div className={styles.signupFormContainer}>
                 <h3 className={styles.title}>Sign Up for Pack and Plate</h3>
                 <p>
@@ -130,7 +132,7 @@ const Signup: React.FC = () => {
                     </div>
                     <div className={styles.loginContainer}>
                         <span>Already have an account?</span>
-                        <a href="#" onClick={redirectTo('/login')}>Login</a>
+                        <span onClick={redirectTo('/login')}>Login</span>
                     </div>
 
                     <button type="submit" className={styles.button}>

@@ -1,55 +1,63 @@
 import React from 'react';
 import './About.module.css';
+import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
+import Footer from '../../../organisms/Footer/Footer';
 
 const About: React.FC = () => {
   return (
-    <div className="about-container">
+
+  <div className="about-container">
+      <PublicNavigation />
       <section className="hero-section">
-        <h1>About PackandPlate</h1>
-        <h2>The Ultimate Parcel Point and Mess Management System</h2>
-        <p>Welcome to PackandPlate, the ultimate solution for parcel point and mess management designed specifically for mess owners and parcel point administrators.</p>
+        <h1>Welcome to Packandplate</h1>
+        <h2>Your Partner in Mess or Parcel Point Management</h2>
+        <img src="path/to/your/image.jpg" alt="Mess or Parcel Point" />
       </section>
 
-      <section className="features-section">
-        <h2>Key Features</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <h3>Create & Manage Dishes</h3>
-            <p>Effortlessly manage your dishes with our intuitive interface. Whether you need to create, view, edit, or delete, doing so has never been easier.</p>
-          </div>
-          <div className="feature-card">
-            <h3>Flexible Membership Plans</h3>
-            <p>Craft tailored membership options to enhance user experiences and engagement. Our system allows you to offer, modify, and remove plans as needed.</p>
-          </div>
-          <div className="feature-card">
-            <h3>User Management</h3>
-            <p>Keep track of your users seamlessly. Our platform allows for comprehensive user management, empowering you to view, edit, and delete accounts effortlessly.</p>
-          </div>
-          <div className="feature-card">
-            <h3>Dynamic Menu Management</h3>
-            <p>Update your menu in real-time to keep offerings fresh and appealing. Encourage your users to try new dishes and maintain interest in your services.</p>
-          </div>
+      <section className="what-we-do-section">
+        <h2>Simplifying Mess or Parcel Point Management</h2>
+        <p>Packandplate is a comprehensive management system designed specifically for mess or parcel points. Our platform streamlines operations, reduces costs, and enhances the overall experience for customers and administrators alike.</p>
+        <ul>
+          <li>Easy Order Management: Manage orders efficiently and reduce errors.</li>
+          <li>Real-time Tracking: Track orders in real-time and keep customers informed.</li>
+          <li>Automated Reporting: Generate reports and analytics to optimize operations.</li>
+        </ul>
+      </section>
+
+      <section className="our-mission-section">
+        <h2>Empowering Mess or Parcel Points to Succeed</h2>
+        <p>At Packandplate, we're committed to providing innovative solutions that help mess or parcel points thrive. Our mission is to make management easier, so you can focus on what matters most - providing excellent service to your customers.</p>
+      </section>
+
+      <section className="get-in-touch-section">
+        <h2>Contact Us</h2>
+        <p>Have questions or need support? We're here to help. Reach out to us through our contact form or social media channels.</p>
+        <form>
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label htmlFor="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" />
+
+          <label htmlFor="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+        <div className="social-media-links">
+          {/* Add your social media links here */}
         </div>
       </section>
 
-      <section className="excellence-section">
-        <h2>Achieve Operational Excellence</h2>
-        <p>Imagine a world where managing your mess or parcel point is straightforward and efficient. With PackandPlate, you can achieve just that. Our user-friendly system ensures that you spend less time on management tasks and more time delighting your customers with delicious meals.</p>
-      </section>
+      <div className="cta-button">
+        <a href="/home">Learn More</a>
+      </div>
 
-      <section className="success-section">
-        <h2>Success Stories</h2>
-        <p>Join a growing community of satisfied mess owners who have transformed their operations with PackandPlate. Experience remarkable improvements in organization, user engagement, and overall management efficiency.</p>
-      </section>
+      <Footer />
 
-      <section className="cta-section">
-        <h2>Get Started Today!</h2>
-        <p>Ready to revolutionize your parcel point or mess management?</p>
-        <div className="cta-buttons">
-          <a href="/signup" className="btn btn-primary">Start Your Free Trial</a>
-          <a href="/contact" className="btn btn-secondary">Contact Us</a>
-        </div>
-      </section>
     </div>
   );
 };
