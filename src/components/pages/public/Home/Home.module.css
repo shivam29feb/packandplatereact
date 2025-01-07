@@ -3,6 +3,10 @@
     padding: 10px;
     font-size: 14px;
   }
+
+  .hero{
+    display:block;
+  }
 }
 
 @media screen and (min-width:576px){

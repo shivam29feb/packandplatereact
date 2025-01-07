@@ -8,6 +8,12 @@ const Contact: React.FC = () => {
     <div className="contact-container">
       <PublicNavigation />
 
+      <section className="welcome-section">
+        <h5>Get in Touch</h5>
+        <p>Have a question or need support? We're here to help. Please fill out the form below and we'll get back to you as soon as possible.</p>
+        <button>Contact Us</button>
+      </section>
+
       <section className="hero-section">
         <h1>Have a Question or Need Support?</h1>
         <h2>Contact us and we'll be happy to help.</h2>
