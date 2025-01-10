@@ -12,6 +12,7 @@ const Contact: React.FC = () => {
         <h5>Get in Touch</h5>
         <p>Have a question or need support? We're here to help. Please fill out the form below and we'll get back to you as soon as possible.</p>
         <button>Contact Us</button>
+        
       </section>
 
       <section className="hero-section">
