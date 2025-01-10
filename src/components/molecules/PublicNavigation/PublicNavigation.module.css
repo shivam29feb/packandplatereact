@@ -38,12 +38,15 @@
   }
 
   .publicNavigation {
+    position:fixed;
+    top:0px;
+    left:0px;
     display: none;
     width: calc(100% - 32px);
     padding: 16px;
     padding-top: 48px;
     height: calc(100vh - 48px);
-    background: var(--purples--purple-600);
+    background: var(--purples--purple-100);
   }
 
   .publicNavigation.open {
@@ -62,10 +65,11 @@
 
   .publicNavigation a {
     display: block;
-    width:calc(100% - 16px);
+    width:fit-content;
+    font-weight:600;
     padding: 8px;
     text-decoration: none;
-    color: var(--blacks--black-1000);
+    color: var(--blacks--black-700);
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -75,8 +79,8 @@
 
   .publicNavigation a:hover {
     color: var(--purples--purple-1000);
-    background-color: var(--purples--purple-100);
-    box-shadow:var(--skew-shadow);
+    background-color: var(--purples--purple-200);
+    /* box-shadow:var(--skew-shadow); */
   }
 
   .publicNavigation a.dropdownLink{
@@ -84,21 +88,21 @@
   }
   
   .publicNavigation a.dropdownLink:hover{
-    box-shadow:var(--skew-shadow);
+    background:var(--purples--purple-200);
   }
 
   .dropdownHeaderText{
     display:block;
-    width:calc(100% - 16px);
+    width:fit-content;
+    font-weight:600;
     padding:8px;
     border-radius:4px;
-    color: var(--blacks--black-1000);
+    color: var(--blacks--black-700);
   }
   
   .dropdownHeaderText:hover{
     color: var(--purples--purple-1000);
-    background-color: var(--purples--purple-100);
-    box-shadow:var(--skew-shadow);
+    background-color: var(--purples--purple-200);
   }
 
   

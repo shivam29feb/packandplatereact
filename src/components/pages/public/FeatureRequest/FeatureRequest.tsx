@@ -6,7 +6,11 @@ import Footer from '../../../organisms/Footer/Footer';
 const FeatureRequest = () => {
     return (
         <div className="featureRequestContainer">
+
             <PublicNavigation />
+
+            
+
             <h1>Feature Request</h1>
             <p>
                 If you have any feature request, please fill out the form below and we will get back to you as soon as possible.

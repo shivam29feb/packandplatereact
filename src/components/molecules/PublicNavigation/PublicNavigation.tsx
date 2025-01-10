@@ -43,20 +43,20 @@ const PublicNavigation: React.FC = () => {
           
           <li className={styles.signupDropdown}>
             <div className={styles.dropdownHeader} onClick={toggleDropdownSignup}>
-              <span className={styles.dropdownHeaderText}>Sign up</span>
+              <span className={styles.dropdownHeaderText}>Get Started</span>
             </div>
             <div className={styles.dropdownContent} style={{display: dropdownOpenSignup ? 'block' : 'none'}}>
               <Link className={styles.dropdownLink} to="/signup">User</Link>
-              <Link className={styles.dropdownLink} to="/adminSignup">Admin</Link>
+              <Link className={styles.dropdownLink} to="/admin-signup">Admin</Link>
             </div>
           </li>
           <li className={styles.loginDropdown}>
             <div className={styles.dropdownHeader} onClick={toggleDropdownLogin}>
-              <span className={styles.dropdownHeaderText}>Log in</span>
+              <span className={styles.dropdownHeaderText}>Welcome back</span>
             </div>
             <div className={styles.dropdownContent} style={{display: dropdownOpenLogin ? 'block' : 'none'}}>
               <Link className={styles.dropdownLink} to="/login">User</Link>
-              <Link className={styles.dropdownLink} to="/adminLogin">Admin</Link>
+              <Link className={styles.dropdownLink} to="/admin-login">Admin</Link>
             </div>
           </li>
 
@@ -65,8 +65,8 @@ const PublicNavigation: React.FC = () => {
               <span className={styles.dropdownHeaderText} onClick={toggleDropdownFeedback}>Feedback</span>
             </div>
             <div className={styles.dropdownContent} style={{display: dropdownOpenFeedback ? 'block' : 'none'}}>
-              <Link className={styles.dropdownLink} to="/featureRequest">Feature Request</Link>
-              <Link className={styles.dropdownLink} to="/reportAnIssue">Report an Issue</Link>
+              <Link className={styles.dropdownLink} to="/feature-request">Feature Request</Link>
+              <Link className={styles.dropdownLink} to="/report-an-issue">Report an Issue</Link>
             </div>
           </li>
           
