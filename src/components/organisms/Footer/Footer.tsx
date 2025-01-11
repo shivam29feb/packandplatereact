@@ -47,14 +47,14 @@ const Footer: React.FC = () => {
           <ul className={styles['footer-section-content']}>
             <li><span onClick={redirectTo('/sitemap')}>Sitemap</span></li>
             <li><span onClick={redirectTo('/disclaimer')}>Disclaimer</span></li>
-            <li><span onClick={redirectTo('/privacy')}>Privacy Policy</span></li>
-            <li><span onClick={redirectTo('/terms')}>Terms and Conditions</span></li>
+            <li><span onClick={redirectTo('/privacy-policy')}>Privacy Policy</span></li>
+            <li><span onClick={redirectTo('/terms-and-conditions')}>Terms and Conditions</span></li>
           </ul>
         </div>
       </div>
       <div className={styles['footer-bottom']}>
         <p>&copy; {new Date().getFullYear()} Pack and Plate. All rights reserved.</p>
-        <p><span onClick={redirectTo('/terms')}>Terms of Service</span> | <span onClick={redirectTo('/privacy')}>Privacy Policy</span></p>
+        <p><span onClick={redirectTo('/terms-and-conditions')}>Terms of Service</span> | <span onClick={redirectTo('/privacy-policy')}>Privacy Policy</span></p>
       </div>
     </footer>
   );
