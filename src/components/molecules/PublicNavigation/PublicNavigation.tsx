@@ -44,6 +44,7 @@ const PublicNavigation: React.FC = () => {
           <li className={styles.signupDropdown}>
             <div className={styles.dropdownHeader} onClick={toggleDropdownSignup}>
               <span className={styles.dropdownHeaderText}>Get Started</span>
+              
             </div>
             <div className={styles.dropdownContent} style={{display: dropdownOpenSignup ? 'block' : 'none'}}>
               <Link className={styles.dropdownLink} to="/signup">User</Link>

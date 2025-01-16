@@ -17,6 +17,7 @@ const EditDish = () => {
     // Handle form submission logic here
   };
 
+
   return (
     <div>
       <h2>Edit Dish</h2>
