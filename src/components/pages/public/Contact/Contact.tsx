@@ -1,81 +1,76 @@
 import React from 'react';
-import './Contact.module.css';
+import styles from './Contact.module.css';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
 import Footer from '../../../organisms/Footer/Footer';
+import NewsletterSubscription from '../../../molecules/NewsletterSubscription/NewsletterSubscription';
 
 const Contact: React.FC = () => {
   return (
-    <div className="contact-container">
+    <div className={styles['contact-container']}>
       <PublicNavigation />
 
-      <section className="welcome-section">
-        <h5>Get in Touch</h5>
-        <p>Have a question or need support? We're here to help. Please fill out the form below and we'll get back to you as soon as possible.</p>
-        <button>Contact Us</button>
-        
+      <section className={styles['welcome-section']}>
+        <h5>Contact Our Team</h5>
+        <p>Got any questions about the product or scaling on our platform? We are here to help. Chat with our Friendly team 24/7 and get onboard in less than 5 minutes.</p>
       </section>
 
-      <section className="hero-section">
-        <h1>Have a Question or Need Support?</h1>
-        <h2>Contact us and we'll be happy to help.</h2>
-        <img src="path/to/your/image.jpg" alt="Customer Support" />
-      </section>
+      <section className={styles['contact-content']}>
+        <form className={styles['contact-form-container']}>
+          
+          <div className={styles['contact-field']}>
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
 
-      <section className="contact-information-section">
-        <h2>Contact Details</h2>
-        <p>Address: Packandplate HQ, [Insert Address]</p>
-        <p>Phone Number: +[Insert Phone Number]</p>
-        <p>Email: [Insert Email]</p>
-        <p>Working Hours: [Insert Working Hours]</p>
-      </section>
+          <div className={styles['contact-field']}>
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
 
-      <section className="contact-form-section">
-        <h2>Send Us a Message</h2>
-        <p>Have a question or need support? Fill out the form below and we'll get back to you as soon as possible.</p>
-        <form>
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+          <div className={styles['contact-field']}>
+            <label htmlFor="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
 
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <div className={styles['contact-field']}>
+            <label htmlFor="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
 
-          <label htmlFor="phone">Phone Number:</label>
-          <input type="tel" id="phone" name="phone" />
-
-          <label htmlFor="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-
-          <button type="submit">Send Message</button>
+          <button type="submit" className="primary-button">Get Started</button>
         </form>
-      </section>
+        <div className={styles['contact-info-container']}>
+          <div className={styles['contact-info-header']}>
+            <h6>Chat with us</h6>
+            <p>Speak to our friendly team via live chat</p>
+          </div>
 
-      <section className="social-media-links-section">
-        <h2>Follow Us on Social Media</h2>
-        <p>Stay up-to-date with the latest news and updates from Packandplate.</p>
-        <ul>
-          <li><a href="[Insert Facebook Link]">Facebook</a></li>
-          <li><a href="[Insert Twitter Link]">Twitter</a></li>
-          <li><a href="[Insert LinkedIn Link]">LinkedIn</a></li>
-          <li><a href="[Insert Instagram Link]">Instagram</a></li>
-        </ul>
-      </section>
+          <div className={styles['contact-info-content']}>
+            <div className={styles['contact-link-container']}>
+              <i className='fas fa-chat'></i>
+              <button className="ghost-button">Start a live chat</button>
+            </div>
+            <div className={styles['contact-link-container']}>
+              <i className='fas fa-envelope'></i>
+              <button className="ghost-button">Shoot us an email</button>
+            </div>
 
-      <section className="trust-badges-section">
-        <h2>Trusted by Our Customers</h2>
-        <p>Our customers trust us to provide the best mess or parcel point management solution.</p>
-        <div className="trust-badges">
-          <img src="path/to/secure-payment-badge.jpg" alt="Secure Payment" />
-          <img src="path/to/customer-support-badge.jpg" alt="Customer Support" />
-          <img src="path/to/data-protection-badge.jpg" alt="Data Protection" />
+            <div className={styles['contact-info-header']}>
+              <h6>Call us</h6>
+              <p>Call our team from Mon-Fri 10:00 am to 6:00 pm</p>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <section className="address-map-section">
+      <section className={styles['address-map-section']}>
         <h2>Find Us on the Map</h2>
         <p>Our address on the map.</p>
         <iframe src="[Insert Map Embed]" title="Packandplate Location" width="600" height="450"></iframe>
       </section>
 
+      <NewsletterSubscription/>
       <Footer />
     </div>
   );

@@ -1,0 +1,133 @@
+@media screen and (min-width:320px){
+    .contact-container{
+        display:block;
+        width:calc(100% - 32px);
+        margin-top:48px;        
+        padding:16px;
+    }
+
+    .welcome-section{
+        display:block;
+        width: calc(100% - 32px);
+        margin-bottom: 16px;
+        padding: 16px;
+    }
+
+    .welcome-section h5{
+        font-weight:600;
+        color:var(--blacks--black-1000);
+        margin-bottom: 16px;
+    }
+
+    .welcome-section p{
+        color:var(--blacks--black-400);
+        font-weight:600;
+    }
+
+    .contact-content{
+        display:block;
+        width:calc(100% - 32px);
+        padding:16px;
+    }
+
+    .contact-form-container{
+        display:block;
+        width:100%;
+    }
+
+    .contact-field{
+        display:block;
+        width:100%;
+        margin-bottom:16px;
+    }
+
+    .contact-field label{
+        display:block;
+        width:100%;
+        margin-bottom:8px;
+        font-weight:600;
+    }
+
+    .contact-field input{
+        display:block;
+        width:calc(100% - 32px);
+        padding:4px 16px;
+        border:1px solid var(--blacks--black-200);
+        border-radius:4px;
+        -webkit-border-radius:4px;
+        -moz-border-radius:4px;
+        -ms-border-radius:4px;
+        -o-border-radius:4px;
+}
+
+    .contact-field textarea{
+        display:block;
+        width:calc(100% - 32px);
+        height:80px;
+        padding:4px 16px;
+        border:1px solid var(--blacks--black-200);
+        border-radius:4px;
+    }
+
+    .contact-info-container{
+        display:block;
+        width:calc(100% - 32px);
+        margin-top:16px;
+        padding:16px;
+    }
+
+    .contact-info-header{
+        display:block;
+        width:100%;
+    }
+
+    .contact-info-header h6{
+        display:block;
+        width:100%;
+        font-weight:600;
+        color:var(--blacks--black-800);
+        margin-bottom:8px;
+    }
+
+    .contact-info-header p{
+        display:block;
+        width:100%;
+        color:var(--blacks--black-400);
+    }
+
+    .contact-info-content{
+        display:block;
+        width:100%;
+
+    }
+
+    .contact-link-container{
+        display:block;
+        width:100%;
+        margin:16px 0px;
+    }
+
+    .address-map-section{
+        display:none;
+    }
+}
+
+@media screen and (min-width:768px){
+    .contact-container{
+        margin-top:64px;
+    }
+
+    .contact-content{
+        display:grid;
+        grid-template-columns:50% 50%;
+        gap:16px;
+    }
+
+    .welcome-section h5{
+        text-align:center;
+    }
+
+    .welcome-section p{
+        text-align:center;
+    }
+}

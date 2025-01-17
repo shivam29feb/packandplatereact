@@ -2,6 +2,7 @@ import React from 'react';
 import './About.module.css';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
 import Footer from '../../../organisms/Footer/Footer';
+import NewsletterSubscription from '../../../molecules/NewsletterSubscription/NewsletterSubscription';
 
 const About: React.FC = () => {
   return (
@@ -56,6 +57,7 @@ const About: React.FC = () => {
         <a href="/home">Learn More</a>
       </div>
 
+      <NewsletterSubscription/>
       <Footer />
 
     </div>

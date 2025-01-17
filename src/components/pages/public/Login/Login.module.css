@@ -2,10 +2,12 @@
 
 @media screen and (min-width:320px){
     .loginContainer{
+        position: relative;
         display:block;
         width:100%;
         height:100vh;        
         margin:0px;
+        margin-top: 72px;
         padding:0px;
         padding-top:32px;
         padding-bottom:32px;
@@ -116,7 +118,7 @@
         position:relative;
         width: 40%;
         margin-left:64px;
-        padding: 64px;
+        padding: 32px;
         z-index:3;
     }
 

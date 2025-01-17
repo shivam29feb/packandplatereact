@@ -2,6 +2,7 @@ import React from 'react';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
 import './FeatureRequest.module.css';
 import Footer from '../../../organisms/Footer/Footer';
+import NewsletterSubscription from '../../../molecules/NewsletterSubscription/NewsletterSubscription';
 
 const FeatureRequest = () => {
     return (
@@ -30,6 +31,8 @@ const FeatureRequest = () => {
                 </label>
                 <input type="submit" value="Submit" />
             </form>
+
+            <NewsletterSubscription/>
             <Footer />
         </div>
     );

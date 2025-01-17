@@ -1,5 +1,6 @@
 import React from 'react';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
+import NewsletterSubscription from '../../../molecules/NewsletterSubscription/NewsletterSubscription';
 import Footer from '../../../organisms/Footer/Footer';
 import './Home.module.css';
 
@@ -53,6 +54,7 @@ const Home = () => {
           <button>Learn More</button>
         </div>
       </section>    
+      <NewsletterSubscription/>
       <Footer />
     </div>
   );

@@ -1,13 +1,72 @@
 @media screen and (min-width:320px){
+    .report-an-issue-container{
+        display:block;
+        width:calc(100% - 32px);
+        margin-top:48px;        
+        padding:16px;
+    }
+    
+    .report-an-issue-form-container{
+        display:block;
+        width:100%;
+    }
 
+    .report-an-issue-form-container h5{
+        font-weight:600;
+        margin-bottom:16px;
+        color:var(--blacks--black-1000);
+    }
+
+    .report-form-field{
+        display:block;
+        width:100%;
+        margin-bottom:16px;
+    }
+
+    .report-form-field label{
+        display:block;
+        width:100%;
+        margin-bottom:8px;
+        font-weight:600;
+    }
+
+    .report-form-field input{
+        display:block;
+        width:calc(100% - 32px);
+        padding:4px 16px;
+        border:1px solid var(--blacks--black-200);
+        border-radius:4px;
+        -webkit-border-radius:4px;
+        -moz-border-radius:4px;
+        -ms-border-radius:4px;
+        -o-border-radius:4px;
+}
+
+    .report-form-field textarea{
+        display:block;
+        width:calc(100% - 32px);
+        height:80px;
+        padding:4px 16px;
+        border:1px solid var(--blacks--black-200);
+        border-radius:4px;
+    }
 }
 
 @media screen and (min-width:576px){
-
+    .report-an-issue-form-container{
+        display: block;
+        width: 60%;
+        padding: 32px;
+        box-shadow: var(--global-box-shadow);
+        margin: 0 auto;
+        border-radius: 4px;
+    }
 }
 
 @media screen and (min-width:768px){
-
+    .report-an-issue-container{
+        margin-top:64px;
+    }
 }
 
 @media screen and (min-width:990px){

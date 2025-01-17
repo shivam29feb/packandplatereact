@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Pricing.module.css';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
 import Footer from '../../../organisms/Footer/Footer';
+import NewsletterSubscription from '../../../molecules/NewsletterSubscription/NewsletterSubscription';
 
 const Pricing: React.FC = () => {
   return (
@@ -91,6 +92,7 @@ const Pricing: React.FC = () => {
         <a href="/signup">Get Started Today</a>
       </div>
 
+      <NewsletterSubscription/>
       <Footer />
     </div>
   );

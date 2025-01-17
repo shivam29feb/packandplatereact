@@ -36,10 +36,22 @@ const PublicNavigation: React.FC = () => {
 
 
         <ul>
-          <li><Link to="/">Home</Link></li>
+          <li>
+            <Link to="/" >Home</Link>
+          </li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
           <li><Link to="/pricing">Pricing</Link></li>
+
+          <li className={styles.feedbackDropdown}>
+            <div className={styles.dropdownHeader} onClick={() => setDropdownOpenFeedback(!dropdownOpenFeedback)}>
+              <span className={styles.dropdownHeaderText} onClick={toggleDropdownFeedback}>Feedback</span>
+            </div>
+            <div className={styles.dropdownContent} style={{display: dropdownOpenFeedback ? 'block' : 'none'}}>
+              <Link className={styles.dropdownLink} to="/feature-request">Feature Request</Link>
+              <Link className={styles.dropdownLink} to="/report-an-issue">Report an Issue</Link>
+            </div>
+          </li>
           
           <li className={styles.signupDropdown}>
             <div className={styles.dropdownHeader} onClick={toggleDropdownSignup}>
@@ -61,15 +73,7 @@ const PublicNavigation: React.FC = () => {
             </div>
           </li>
 
-          <li className={styles.feedbackDropdown}>
-            <div className={styles.dropdownHeader} onClick={() => setDropdownOpenFeedback(!dropdownOpenFeedback)}>
-              <span className={styles.dropdownHeaderText} onClick={toggleDropdownFeedback}>Feedback</span>
-            </div>
-            <div className={styles.dropdownContent} style={{display: dropdownOpenFeedback ? 'block' : 'none'}}>
-              <Link className={styles.dropdownLink} to="/feature-request">Feature Request</Link>
-              <Link className={styles.dropdownLink} to="/report-an-issue">Report an Issue</Link>
-            </div>
-          </li>
+          
           
 
         </ul>

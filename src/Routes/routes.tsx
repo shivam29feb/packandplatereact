@@ -17,6 +17,7 @@ import ReportAnIssue from '../components/pages/public/ReportAnIssue/ReportAnIssu
 import TermsAndConditions from '../components/pages/public/TermsAndConditions/TermsAndConditions';
 import PrivacyPolicy from '../components/pages/public/PrivacyPolicy/PrivacyPolicy';
 import Sitemap from '../components/pages/public/Sitemap/Sitemap';
+import FeatureRequestTerms from '../components/pages/public/FeatureRequestTerms/FeatureRequestTerms';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -29,6 +30,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/feature-request" element={<FeatureRequest />} />
+      <Route path="/feature-request-terms" element={<FeatureRequestTerms />} />
       <Route path="/report-an-issue" element={<ReportAnIssue />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />

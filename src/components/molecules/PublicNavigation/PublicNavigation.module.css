@@ -63,6 +63,17 @@
     transition: background-color 0.3s ease;
   }
 
+  .publicNavigation li:nth-of-type(6) div span{
+    margin-bottom: 8px;
+    background: var(--purples--purple-900);
+    color: #ffffff;
+  }
+
+  .publicNavigation li:nth-of-type(7) div span{
+    background:var(--purples--purple-200);
+    color:var(--purples--purple-1000);
+  }
+
   .publicNavigation a {
     display: block;
     width:fit-content;
@@ -115,6 +126,95 @@
 @media screen and (min-width: 768px) {
   .publicNavigationContainer {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .navToggle {
+    display:none;
+  }
+
+  .publicNavigation .navToggleInside {
+    display:none;
+  }
+
+  .publicNavigation {
+    display:block;
+    height: fit-content;
+    padding-top: 24px;
+    background: #ffffff;
+  }
+
+  .publicNavigation ul {
+    display: grid;
+    grid-template-columns: 64px 64px 78px 72px 90px 104px 132px;
+    gap:8px;
+    justify-content: center;
+  }
+
+  .publicNavigation li {
+    height: fit-content;
+    position: relative;
+  }
+
+  .publicNavigation ul li:nth-of-type(5) div:nth-of-type(2) {
+    position: absolute;
+    width: 164px;
+    background: #ffffff;
+    box-shadow:var(--global-box-shadow);
+    margin-top: 8px;
+  }
+
+  .publicNavigation ul li:nth-of-type(5) div:nth-of-type(2) a {
+    width: calc(100% - 24px);
+  }
+
+  .publicNavigation ul li:nth-of-type(5) div:nth-of-type(2) a:hover {
+    background:var(--purples--purple-200);
+  }
+
+  .publicNavigation li:nth-of-type(6) div span{
+    margin-bottom: 0px;
+  }
+
+  .publicNavigation li:nth-of-type(6) div span:hover {
+    background:var(--purples--purple-1000);
+    box-shadow:var(--global-box-shadow);
+  }
+
+  .publicNavigation ul li:nth-of-type(6) div:nth-of-type(2) {
+    position: absolute;
+    width: 100%;
+    background: #ffffff;
+    box-shadow:var(--global-box-shadow);
+    margin-top: 8px;
+  }
+
+  .publicNavigation ul li:nth-of-type(6) div:nth-of-type(2) a {
+    width: calc(100% - 24px);
+  }
+
+  .publicNavigation ul li:nth-of-type(6) div:nth-of-type(2) a:hover {
+    background:var(--purples--purple-200);
+  }
+  
+  .publicNavigation li:nth-of-type(7) div span:hover{
+    background:var(--purples--purple-300);
+    box-shadow:var(--global-box-shadow);
+  }
+
+  .publicNavigation ul li:nth-of-type(7) div:nth-of-type(2) {
+    position: absolute;
+    width: 100%;
+    background: #ffffff;
+    box-shadow:var(--global-box-shadow);
+    margin-top: 8px;
+  }
+
+  .publicNavigation ul li:nth-of-type(7) div:nth-of-type(2) a {
+    width: calc(100% - 24px);
+  }
+
+  .publicNavigation ul li:nth-of-type(7) div:nth-of-type(2) a:hover {
+    background:var(--purples--purple-200);
   }
 }
 

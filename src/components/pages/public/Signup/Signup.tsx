@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { signup } from '../../../../services/userService';
 import styles from './Signup.module.css';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
+import NewsletterSubscription from '../../../molecules/NewsletterSubscription/NewsletterSubscription';
+import Footer from '../../../organisms/Footer/Footer';
 
 const Signup: React.FC = () => {
     const navigate = useNavigate();
@@ -44,106 +46,85 @@ const Signup: React.FC = () => {
     };
 
     return (
-        <div className={styles.signupContainer}>
+        <div>
             <PublicNavigation />
-            <div className={styles.signupFormContainer}>
-                <h3 className={styles.title}>Sign Up for Pack and Plate</h3>
-                <p>
-                    Start your 30-day free trial and experience the benefits of using Pack and Plate.
-                </p>
-                <form onSubmit={handleSubmit}>
-                    <div className={styles.formGroupContainer}>
-                    <div className={styles.formGroup}>
-                            <label htmlFor="username">Username</label>
-                            <input
-                                type="text"
-                                id="username"
-                                name="username"
-                                value={formData.username}
-                                onChange={handleChange}
-                                required
-                                className={styles.input}
-                            />
+            <div className={styles.signupContainer}>
+                <div className={styles.signupFormContainer}>
+                    <h3 className={styles.title}>Sign Up for Pack and Plate</h3>
+                    <p>
+                        Start your 30-day free trial and experience the benefits of using Pack and Plate.
+                    </p>
+                    <form onSubmit={handleSubmit}>
+                        <div className={styles.formGroupContainer}>
+                            <div className={styles.formGroup}>
+                                <label htmlFor="username">Username</label>
+                                <input
+                                    type="text"
+                                    id="username"
+                                    name="username"
+                                    value={formData.username}
+                                    onChange={handleChange}
+                                    required
+                                    className={styles.input}
+                                />
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                    className={styles.input}
+                                />
+                            </div>
                         </div>
-                        <div className={styles.formGroup}>
-                            <label htmlFor="email">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                                className={styles.input}
-                            />
+                        <div className={styles.formGroupContainer}>
+                            <div className={styles.formGroup}>
+                                <label htmlFor="password">Password</label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    required
+                                    className={styles.input}
+                                />
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label htmlFor="confirmPassword">Confirm Password</label>
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    name="confirmPassword"
+                                    value={formData.confirmPassword}
+                                    onChange={handleChange}
+                                    required
+                                    className={styles.input}
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.formGroupContainer}>
-                        <div className={styles.formGroup}>
-                            <label htmlFor="password">Password</label>
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                value={formData.password}
-                                onChange={handleChange}
-                                required
-                                className={styles.input}
-                            />
+                        <div className={styles.loginContainer}>
+                            <span>Already have an account?</span>
+                            <span onClick={redirectTo('/login')}>Login</span>
                         </div>
-                        <div className={styles.formGroup}>
-                            <label htmlFor="confirmPassword">Confirm Password</label>
-                            <input
-                                type="password"
-                                id="confirmPassword"
-                                name="confirmPassword"
-                                value={formData.confirmPassword}
-                                onChange={handleChange}
-                                required
-                                className={styles.input}
-                            />
-                        </div>
-                    </div>
-                    <div className={styles.formGroupContainer}>
-                        <div className={styles.formGroup}>
-                            <label htmlFor="phone">Phone Number</label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                required
-                                className={styles.input}
-                            />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label htmlFor="address">Address</label>
-                            <input
-                                type="text"
-                                id="address"
-                                name="address"
-                                value={formData.address}
-                                onChange={handleChange}
-                                required
-                                className={styles.input}
-                            />
-                        </div>
-                    </div>
-                    <div className={styles.loginContainer}>
-                        <span>Already have an account?</span>
-                        <span onClick={redirectTo('/login')}>Login</span>
-                    </div>
 
-                    <button type="submit" className={styles.button}>
-                        Sign Up
-                    </button>
-                </form>
-                {message && <p className={styles.message}>{message}</p>}
+                        <button type="submit" className={styles.button}>
+                            Sign Up
+                        </button>
+                    </form>
+                    {message && <p className={styles.message}>{message}</p>}
+                </div>
+                <div className={styles.imgContainer}>
+                    <img src={require('../../../../assets/images/signup-background.jpg')} alt="Signup background" />
+                </div>
+
             </div>
-            <div className={styles.imgContainer}>
-                <img src={require('../../../../assets/images/signup-background.jpg')} alt="Signup background" />
-            </div>
+            <NewsletterSubscription />
+            <Footer />
         </div>
     );
 };
