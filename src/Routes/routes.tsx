@@ -10,7 +10,7 @@ import Signup from '../components/pages/public/Signup/Signup';
 import Login from '../components/pages/public/Login/Login';
 import AdminLogin from '../components/pages/public/AdminLogin/AdminLogin';
 import AdminSignup from '../components/pages/public/AdminSignup/AdminSignup';
-import MemberDashboard from '../components/pages/member-only/member/member_dashboard';
+import MemberDashboard from '../components/pages/member-only/member/MemberDashboard/MemberDashboard';
 import Pricing from '../components/pages/public/Pricing/Pricing';
 import FeatureRequest from '../components/pages/public/FeatureRequest/FeatureRequest';
 import ReportAnIssue from '../components/pages/public/ReportAnIssue/ReportAnIssue';
@@ -18,6 +18,7 @@ import TermsAndConditions from '../components/pages/public/TermsAndConditions/Te
 import PrivacyPolicy from '../components/pages/public/PrivacyPolicy/PrivacyPolicy';
 import Sitemap from '../components/pages/public/Sitemap/Sitemap';
 import FeatureRequestTerms from '../components/pages/public/FeatureRequestTerms/FeatureRequestTerms';
+import MemberProfile from '../components/pages/member-only/member/MemberProfile/MemberProfile';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -42,9 +43,10 @@ const AppRoutes: React.FC = () => {
 
       {/* Member only routes  */}
       <Route path="/member/dashboard" element={<MemberDashboard />} />
+      <Route path="/member/profile" element={<MemberProfile />} />
       <Route path="/add-dish" element={<AddDish />} />
       <Route path="/edit-dish/:id" element={<EditDish />} />
-      <Route path="/view-dish/:id" element={<ViewDish />} />
+      <Route path="/member/view-dish/:id" element={<ViewDish />} />
       
     </Routes>
   );

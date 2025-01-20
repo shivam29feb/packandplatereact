@@ -1,28 +1,48 @@
 import React from 'react';
-import './About.module.css';
+import styles from './About.module.css';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
 import Footer from '../../../organisms/Footer/Footer';
 import NewsletterSubscription from '../../../molecules/NewsletterSubscription/NewsletterSubscription';
+import Contact from '../Contact/Contact';
 
 const About: React.FC = () => {
   return (
 
   <div className="about-container">
       <PublicNavigation />
-      <section className="hero-section">
+      <section className={styles['hero-section']}>
         <h1>Welcome to Packandplate</h1>
-        <h2>Your Partner in Mess or Parcel Point Management</h2>
-        <img src="path/to/your/image.jpg" alt="Mess or Parcel Point" />
+        <h6>Your Partner in Mess or Parcel Point Management</h6>
+        <button className="primary-button">Get started</button>
+        {/* <img src="path/to/your/image.jpg" alt="Mess or Parcel Point" /> */}
       </section>
 
-      <section className="what-we-do-section">
-        <h2>Simplifying Mess or Parcel Point Management</h2>
-        <p>Packandplate is a comprehensive management system designed specifically for mess or parcel points. Our platform streamlines operations, reduces costs, and enhances the overall experience for customers and administrators alike.</p>
-        <ul>
-          <li>Easy Order Management: Manage orders efficiently and reduce errors.</li>
-          <li>Real-time Tracking: Track orders in real-time and keep customers informed.</li>
-          <li>Automated Reporting: Generate reports and analytics to optimize operations.</li>
-        </ul>
+      <section className={styles['what-we-do-section']}>
+        <div className="what-we-do-content">
+          <h2>Simplifying Mess or Parcel Point Management</h2>
+          <p>Packandplate is a comprehensive management system designed specifically for mess or parcel points. 
+            <br/>
+            <br/>
+            Our platform streamlines operations, reduces costs, and enhances the overall experience for customers and administrators alike.</p>
+        </div>
+        <div className="what-we-do-img-container">
+          {/* <img src="" alt="" /> */}
+        </div>
+      </section>
+
+      <section className={styles['small-cards-container']}>
+          <div className={styles['small-cards']}>
+            <h6>Easy Order Management:</h6>
+             <p>Manage orders efficiently and reduce errors.</p>
+             </div>
+          <div>
+            <h6 className={styles['small-cards']}>Real-time Tracking:</h6>
+             <p>Track orders in real-time and keep customers informed.</p>
+             </div>
+          <div className={styles['small-cards']}>
+            <h6>Automated Reporting:</h6>
+             <p>Generate reports and analytics to optimize operations.</p>
+             </div>
       </section>
 
       <section className="our-mission-section">
@@ -30,33 +50,8 @@ const About: React.FC = () => {
         <p>At Packandplate, we're committed to providing innovative solutions that help mess or parcel points thrive. Our mission is to make management easier, so you can focus on what matters most - providing excellent service to your customers.</p>
       </section>
 
-      <section className="get-in-touch-section">
-        <h2>Contact Us</h2>
-        <p>Have questions or need support? We're here to help. Reach out to us through our contact form or social media channels.</p>
-        <form>
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-
-          <label htmlFor="phone">Phone Number:</label>
-          <input type="tel" id="phone" name="phone" />
-
-          <label htmlFor="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-
-          <button type="submit">Submit</button>
-        </form>
-        <div className="social-media-links">
-          {/* Add your social media links here */}
-        </div>
-      </section>
-
-      <div className="cta-button">
-        <a href="/home">Learn More</a>
-      </div>
-
+   
+      <Contact />
       <NewsletterSubscription/>
       <Footer />
 

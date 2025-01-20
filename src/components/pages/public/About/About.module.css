@@ -1,5 +1,33 @@
 @media screen and (min-width:320px){
+    .hero-section{
+        margin-top:48px;
+        text-align:center;
+    }
 
+    .hero-section h1{
+        font-size:var(--headings--h3);
+        color:var(--blacks--black-1000);
+    }
+
+    .what-we-do-section{
+        display:block;
+        text-align:left;
+    }
+
+    .what-we-do-section h2{
+        display:block;
+        width:100%;
+        color:var(--blacks--black-1000);
+        font-size:var(--headings--h4);
+    }
+
+    .what-we-do-section p{
+        display:block;
+        width:100%;
+        color:var(--blacks--black-600);
+    }
+
+    
 }
 
 @media screen and (min-width:576px){
@@ -7,7 +35,24 @@
 }
 
 @media screen and (min-width:768px){
+    .hero-section{
+        margin-top:64px;
+        height:100vh;
+    }
 
+    .hero-section h1{
+        margin-top: 45vh;
+        margin-bottom:16px;
+    }
+
+    .hero-section h6{
+        margin-bottom:16px;
+    }
+
+    .what-we-do-section{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media screen and (min-width:990px){

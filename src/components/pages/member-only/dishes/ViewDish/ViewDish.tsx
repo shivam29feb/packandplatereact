@@ -2,12 +2,13 @@
 
 import React from 'react';
 import './ViewDish.module.css';
+import MemberNavigation from '../../../../molecules/MemberNavigation/MemberNavigation';
 
-const ViewDish = () => {
+const ViewDish: React.FC = () => {
   return (
     <div>
-      <h1>View Dish</h1>
-      {/* Add your component code here */}
+      <MemberNavigation/>
+      <p>i'm view dish</p>
     </div>
   );
 };
