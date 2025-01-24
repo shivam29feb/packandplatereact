@@ -1,14 +1,12 @@
 import React from 'react';
 import styles from './About.module.css';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
-import Footer from '../../../organisms/Footer/Footer';
-import NewsletterSubscription from '../../../molecules/NewsletterSubscription/NewsletterSubscription';
 import Contact from '../Contact/Contact';
 
 const About: React.FC = () => {
   return (
 
-  <div className="about-container">
+  <div className={styles['about-container']}>
       <PublicNavigation />
       <section className={styles['hero-section']}>
         <h1>Welcome to Packandplate</h1>
@@ -52,8 +50,7 @@ const About: React.FC = () => {
 
    
       <Contact />
-      <NewsletterSubscription/>
-      <Footer />
+      
 
     </div>
   );

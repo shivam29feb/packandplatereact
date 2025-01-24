@@ -8,6 +8,8 @@ import Footer from '../../../organisms/Footer/Footer';
 
 const Signup: React.FC = () => {
     const navigate = useNavigate();
+
+    // setting empty form data state using setFormData function 
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -18,6 +20,7 @@ const Signup: React.FC = () => {
     });
     const [message, setMessage] = useState('');
 
+    // updating formData values using setFormData function and ... spread operator
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
@@ -25,6 +28,7 @@ const Signup: React.FC = () => {
         });
     };
 
+    // Sending the data to the service file signup function using the handleSubmit function 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (formData.password !== formData.confirmPassword) {

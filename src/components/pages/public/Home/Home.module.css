@@ -6,6 +6,79 @@
 
   .hero{
     display:block;
+    width: calc(100% - 32px);
+    margin: 0 16px;
+    margin-top: 72px;
+  }
+
+  .hero h2{
+    display:block;
+    width:100%;
+    margin:0 auto;
+    text-align:left;
+    font-size: var(--headings--h5);
+  }
+
+  .hero p{
+    display:block;
+    width:100%;
+    margin:16px auto;
+    text-align:left;
+  }
+
+  .value-proposition{
+    display:block;
+    width:calc(100% - 32px);
+    margin:32px 16px;
+  }
+
+  .value-proposition h2{
+    display:block;
+    width:calc(100% - 16px);
+    margin:0 16px;
+    margin-bottom: 24px;
+    font-size: var(--headings--h4);
+  }
+
+  .value-proposition .value-card-container{
+    display:block;
+    margin:0 auto;
+    width:100%;
+  }
+
+  .value-proposition .value-card-container .value-card{
+    display:block;
+    width:calc(100% - 64px);
+    margin:16px;
+    padding:16px;
+    border:1px solid var(--blacks--black-200);
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+
+  .value-card h3{
+    display:block;
+    width:calc(100% - 32px);
+    margin:0;
+    margin-bottom:16px;
+    font-size:var(--headings--h5);
+    font-weight:600;
+    color:var(--blacks--black-1000);
+  }
+
+  .value-card p{
+    display:block;
+    width:100%;
+    margin:0;
+    margin-bottom:16px;
+    color:var(--blacks--black-600);
+  }
+
+  .primary-button{
+    margin-bottom:16px;
   }
 }
 
@@ -14,12 +87,51 @@
     padding: 20px;
     font-size: 16px;
   }
+
+  .hero{
+    display:grid;
+    grid-template-columns:1fr;
+    align-content:center;
+    justify-items: center;
+    height:50vh;
+  }
+
+  .hero h2{
+    width:60%;
+    text-align: center;
+  }
+
+  .hero p{
+    width:80%;
+    text-align: center;
+  }
+
+  .hero .buttons-container{
+    display: grid;
+    grid-template-columns:102px 102px;
+    gap:16px;
+  }
+
+  .hero .buttons-container .primary-button{
+    margin-bottom:0px;
+  }
 }
 
 @media screen and (min-width:768px){
   .home-container {
     padding: 30px;
     font-size: 18px;
+  }
+
+  .hero{
+    /* margin-top:48px; */
+  }
+
+  .value-proposition .value-card-container{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:16px;
+    width:calc(100% - 16px);
   }
 }
 
