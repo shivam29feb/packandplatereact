@@ -2,7 +2,7 @@
 import React from 'react';
 
 import './Notification.module.css';
-import { NotificationItem } from '../../../molecules/NotificationItem/NotificationItem';
+import { NotificationItem } from '../../../../molecules/NotificationItem/NotificationItem';
 
 const Notification = () => {
   const notifications = [

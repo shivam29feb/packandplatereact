@@ -1,6 +1,1 @@
-
-<?php
-// ...existing code...
-// Code for adding a dish
-// ...existing code...
-?>
+<?php echo $_SESSION['user_id']; ?>

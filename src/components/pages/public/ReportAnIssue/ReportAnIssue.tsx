@@ -9,10 +9,11 @@ const ReportAnIssue = () => {
     return (
         <div className={styles['report-an-issue-container']}>
             <PublicNavigation />
-            <div className={styles['report-an-issue-form-container']}>
+            <div className={styles['form-container']}>
                 <h5>Report an Issue</h5>
                 <form>
-                    <div className={styles['report-form-field']}>
+
+                    <div className={styles['report-form-field'] }>
                         <label>
                             Your Name
                         </label>

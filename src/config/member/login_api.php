@@ -14,10 +14,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Check credentials (this is just a simple example, you should use a database and proper hashing in a real application)
-    if ($username === 'member' && $password === 'password') {
-        echo json_encode(['success' => true, 'message' => 'Login successful']);
-    } else {
-        echo json_encode(['error' => 'Invalid username or password']);
+    try {
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE user_username = ?");
+        $stmt->execute([$username]);
+        $exists = $stmt->fetchColumn();
+
+        if (!$exists) {
+            echo json_encode(['error' => 'User does not exist']);
+            exit;
+        }
+        else{
+
+            
+            $stmt = $pdo->prepare("SELECT user_password_hash FROM users WHERE user_username = ?");
+            $stmt->execute([$username]);
+            $row = $stmt->fetch();
+
+            if (!password_verify($password, $row['user_password_hash'])) {
+                echo json_encode(['error' => 'Invalid password']);
+                $_SESSION['user_id'] = $username;
+                if($_SESSION['user_id'] === $username)
+                {
+                    echo json_encode(['success' => true, 'message' => 'Login successful']);
+                }
+                exit;
+            }
+            
+            
+        }
+    } catch (PDOException $e) {
+        echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
     }
     exit;
 }

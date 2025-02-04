@@ -1,7 +1,7 @@
 // Billing and Payment module entry point
 import React from 'react';
 import styles from './BillingAndPayment.module.css';
-import MemberNavigation from '../../../molecules/MemberNavigation/MemberNavigation';
+import MemberNavigation from '../../../../molecules/MemberNavigation/MemberNavigation';
 
 
 const BillingAndPayment = () => {

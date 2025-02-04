@@ -42,20 +42,22 @@ const Home = () => {
 
       <section className={styles['feature-highlights']}>
         <h2>Key Features</h2>
-        <div>
-          <h3>Customizable Plans</h3>
+        <div className={styles['feature-card-container']}>
+        <div className={styles['feature-card']}>
+          <h3>Customizable <br/>Plans</h3>
           <p>Create plans that fit your business needs.</p>
-          <button>Learn More</button>
+          <button className={`${styles['primary-button']} primary-button`}>Learn More</button>
         </div>
-        <div>
+        <div className={styles['feature-card']}>
           <h3>Automated Notifications</h3>
           <p>Automate membership notifications and reminders.</p>
-          <button>Learn More</button>
+          <button className={`${styles['primary-button']} primary-button`}>Learn More</button>
         </div>
-        <div>
-          <h3>Insights and Analytics</h3>
+        <div className={styles['feature-card']}>
+          <h3>Insights and <br/>Analytics</h3>
           <p>Track your membership metrics and make data-driven decisions.</p>
-          <button>Learn More</button>
+          <button className={`${styles['primary-button']} primary-button`}>Learn More</button>
+        </div>
         </div>
       </section>    
       <NewsletterSubscription/>

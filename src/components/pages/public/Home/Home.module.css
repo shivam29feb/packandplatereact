@@ -46,7 +46,7 @@
     width:100%;
   }
 
-  .value-proposition .value-card-container .value-card{
+  .value-proposition .value-card-container .value-card, .feature-highlights .feature-card{
     display:block;
     width:calc(100% - 64px);
     margin:16px;
@@ -59,7 +59,7 @@
     -o-border-radius: 16px;
 }
 
-  .value-card h3{
+  .value-card h3, .feature-highlights .feature-card h3{
     display:block;
     width:calc(100% - 32px);
     margin:0;
@@ -69,7 +69,7 @@
     color:var(--blacks--black-1000);
   }
 
-  .value-card p{
+  .value-card p, .feature-highlights .feature-card p{
     display:block;
     width:100%;
     margin:0;
@@ -80,6 +80,22 @@
   .primary-button{
     margin-bottom:16px;
   }
+
+  .feature-highlights{
+    display:block;
+    width: calc(100% - 32px);
+    margin: 0 16px;
+  }
+
+  .feature-highlights h2{
+    display:block;
+    width:calc(100% - 16px);
+    margin:0 16px;
+    margin-bottom: 24px;
+    font-size: var(--headings--h4);
+  }
+
+
 }
 
 @media screen and (min-width:576px){
@@ -127,7 +143,7 @@
     /* margin-top:48px; */
   }
 
-  .value-proposition .value-card-container{
+  .value-proposition .value-card-container, .feature-highlights .feature-card-container{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap:16px;

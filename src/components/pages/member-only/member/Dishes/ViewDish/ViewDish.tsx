@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './ViewDish.module.css';
-import MemberNavigation from '../../../../molecules/MemberNavigation/MemberNavigation';
+import MemberNavigation from '../../../../../molecules/MemberNavigation/MemberNavigation';
 
 const ViewDish: React.FC = () => {
   return (

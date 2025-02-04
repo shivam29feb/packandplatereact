@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import Home from '../components/pages/public/Home/Home';
 import Contact from '../components/pages/public/Contact/Contact';
 import About from '../components/pages/public/About/About';
-import AddDish from '../components/pages/member-only/dishes/AddDish/AddDish';
-import EditDish from '../components/pages/member-only/dishes/EditDish/EditDish';
-import ViewDish from '../components/pages/member-only/dishes/ViewDish/ViewDish';
+import AddDish from '../components/pages/member-only/member/Dishes/AddDish/AddDish';
+
+import ViewDish from '../components/pages/member-only/member/Dishes/ViewDish/ViewDish';
 import Signup from '../components/pages/public/Signup/Signup';
 import Login from '../components/pages/public/Login/Login';
 import AdminLogin from '../components/pages/public/AdminLogin/AdminLogin';
@@ -45,7 +45,6 @@ const AppRoutes: React.FC = () => {
       <Route path="/member/dashboard" element={<MemberDashboard />} />
       <Route path="/member/profile" element={<MemberProfile />} />
       <Route path="/add-dish" element={<AddDish />} />
-      <Route path="/edit-dish/:id" element={<EditDish />} />
       <Route path="/member/view-dish/:id" element={<ViewDish />} />
       
     </Routes>

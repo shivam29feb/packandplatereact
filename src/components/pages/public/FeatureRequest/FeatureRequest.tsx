@@ -3,6 +3,7 @@ import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigati
 import './FeatureRequest.module.css';
 import Footer from '../../../organisms/Footer/Footer';
 import NewsletterSubscription from '../../../molecules/NewsletterSubscription/NewsletterSubscription';
+import styles from './FeatureRequest.module.css'
 
 const FeatureRequest = () => {
     return (
@@ -11,26 +12,41 @@ const FeatureRequest = () => {
             <PublicNavigation />
 
             
-
-            <h1>Feature Request</h1>
-            <p>
-                If you have any feature request, please fill out the form below and we will get back to you as soon as possible.
-            </p>
-            <form>
-                <label>
-                    Name:
-                    <input type="text" name="name" />
-                </label>
-                <label>
-                    Email:
-                    <input type="email" name="email" />
-                </label>
-                <label>
-                    Feature Request:
-                    <textarea name="featureRequest" />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
+            <div className={styles['form-container']}>
+                <h1>Help Shape the Future of Pack and Plate</h1>
+                <p>
+                    Tell Us How We Can Make Pack and Plate Better
+                </p>
+                <form>
+                    <div className="form-fields-container">
+                        <div className={styles['form-field']}>
+                            <label>
+                                Name:
+                            </label>
+                            <input type="text" name="name" />
+                        </div>
+                        <div className={styles['form-field']}>
+                            <label>
+                                Email:
+                            </label>
+                            <input type="email" name="email" />
+                        </div>
+                        <div className={styles['form-field']}>
+                            <label>
+                                Feature Title:
+                            </label>
+                            <input type="email" name="email" />
+                        </div>
+                        <div className={styles['form-field']}>
+                            <label>
+                                Feature Description:
+                            </label>
+                            <textarea name="featureRequest" />
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
 
             <NewsletterSubscription/>
             <Footer />
