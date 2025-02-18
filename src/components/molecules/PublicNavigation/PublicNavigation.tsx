@@ -60,6 +60,7 @@ const PublicNavigation: React.FC = () => {
             </div>
             <div className={styles.dropdownContent} style={{display: dropdownOpenSignup ? 'block' : 'none'}}>
               <Link className={styles.dropdownLink} to="/signup">User</Link>
+              <Link className={styles.dropdownLink} to="/signup">Member</Link>
               <Link className={styles.dropdownLink} to="/admin-signup">Admin</Link>
             </div>
           </li>
@@ -69,6 +70,7 @@ const PublicNavigation: React.FC = () => {
             </div>
             <div className={styles.dropdownContent} style={{display: dropdownOpenLogin ? 'block' : 'none'}}>
               <Link className={styles.dropdownLink} to="/login">User</Link>
+              <Link className={styles.dropdownLink} to="/login">Member</Link>
               <Link className={styles.dropdownLink} to="/admin-login">Admin</Link>
             </div>
           </li>
