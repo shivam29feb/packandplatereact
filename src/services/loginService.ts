@@ -10,16 +10,18 @@ interface LoginResponse {
 interface LoginData {
   email: string;
   password: string;
+  userType: string;
 }
 
-export const login = async (email: string, password: string): Promise<LoginResponse> => {
+export const login = async (email: string, password: string, userType: string = 'member'): Promise<LoginResponse> => {
   try {
     const data: LoginData = {
       email,
-      password
+      password,
+      userType
     };
 
-    const url = `${API_BASE_URL}/member/login_api.php`;
+    const url = `${API_BASE_URL}/auth/login.php`;
     
     // Log complete request details
     console.log('=== Login Request Details ===');
@@ -77,3 +79,4 @@ export const login = async (email: string, password: string): Promise<LoginRespo
     };
   }
 };
+

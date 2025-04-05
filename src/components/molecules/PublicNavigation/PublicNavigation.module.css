@@ -86,12 +86,11 @@
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
-}
+  }
 
   .publicNavigation a:hover {
     color: var(--purples--purple-1000);
     background-color: var(--purples--purple-200);
-    /* box-shadow:var(--skew-shadow); */
   }
 
   .publicNavigation a.dropdownLink{
@@ -116,7 +115,21 @@
     background-color: var(--purples--purple-200);
   }
 
-  
+  .loginLink {
+    display: block;
+    width: fit-content;
+    font-weight: 600;
+    padding: 8px;
+    text-decoration: none;
+    color: var(--purples--purple-1000);
+    background: var(--purples--purple-200);
+    border-radius: 4px;
+  }
+
+  .loginLink:hover {
+    background: var(--purples--purple-300);
+    box-shadow: var(--global-box-shadow);
+  }
 }
 
 @media screen and (min-width: 576px) {
@@ -145,8 +158,8 @@
 
   .publicNavigation ul {
     display: grid;
-    grid-template-columns: 64px 64px 78px 72px 90px 104px 132px;
-    gap:8px;
+    grid-template-columns: 64px 64px 78px 72px 90px 104px 64px;
+    gap: 8px;
     justify-content: center;
   }
 
@@ -216,6 +229,11 @@
   .publicNavigation ul li:nth-of-type(7) div:nth-of-type(2) a:hover {
     background:var(--purples--purple-200);
   }
+  
+  .loginLink:hover {
+    background: var(--purples--purple-300);
+    box-shadow: var(--global-box-shadow);
+  }
 }
 
 @media screen and (min-width: 990px) {
@@ -229,3 +247,4 @@
 @media screen and (min-width: 1400px) {
   /* Add styles for extra large screens here */
 }
+

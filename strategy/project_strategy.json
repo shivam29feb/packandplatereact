@@ -1,0 +1,63 @@
+{
+  "authentication": {
+    "userTypes": [
+      {
+        "name": "System Admin",
+        "role": "admin",
+        "description": "Developer/administrator with full system access",
+        "dashboardRoute": "/admin/dashboard"
+      },
+      {
+        "name": "Member/Subscriber",
+        "role": "member",
+        "description": "Mess owners or business subscribers who use the platform",
+        "dashboardRoute": "/member/dashboard"
+      },
+      {
+        "name": "Customer",
+        "role": "customer",
+        "description": "End users who are customers of the mess owners",
+        "dashboardRoute": "/customer/dashboard"
+      }
+    ],
+    "approach": "unified",
+    "loginComponent": "single",
+    "sessionManagement": "PHP session with JWT token"
+  },
+  "database": {
+    "schema": {
+      "users": {
+        "commonFields": ["id", "username", "email", "password_hash", "created_at"],
+        "typeField": "user_type",
+        "validTypes": ["admin", "member", "customer"]
+      },
+      "relatedTables": {
+        "member_profiles": {
+          "fields": ["member_id", "business_name", "subscription_plan", "address"]
+        },
+        "customer_profiles": {
+          "fields": ["customer_id", "preferred_mess", "dietary_preferences"]
+        }
+      }
+    }
+  },
+  "frontend": {
+    "componentStructure": "atomic design",
+    "routing": {
+      "public": ["/", "/about", "/contact", "/login", "/signup", "/pricing"],
+      "protected": {
+        "admin": ["/admin/dashboard", "/admin/users", "/admin/settings"],
+        "member": ["/member/dashboard", "/member/dishes", "/member/customers"],
+        "customer": ["/customer/dashboard", "/customer/orders", "/customer/profile"]
+      }
+    }
+  },
+  "api": {
+    "endpoints": {
+      "auth": ["/login", "/signup", "/logout", "/reset-password"],
+      "admin": ["/admin/users", "/admin/stats", "/admin/settings"],
+      "member": ["/member/dishes", "/member/customers", "/member/subscriptions"],
+      "customer": ["/customer/orders", "/customer/preferences", "/customer/payments"]
+    }
+  }
+}
