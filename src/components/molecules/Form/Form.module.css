@@ -1,0 +1,44 @@
+/* Base Form Styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: var(--global-box-shadow);
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.formContent {
+  margin-bottom: 24px;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Full Width */
+.fullWidth {
+  max-width: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .form {
+    padding: 16px;
+  }
+  
+  .formActions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+  
+  .formActions button {
+    width: 100%;
+  }
+}

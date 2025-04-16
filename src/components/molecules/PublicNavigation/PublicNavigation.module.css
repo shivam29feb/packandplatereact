@@ -20,7 +20,7 @@
   .navToggleHidden {
     display: none;
   }
-  
+
   .navToggleInside {
     display: none;
     position: absolute;
@@ -96,7 +96,7 @@
   .publicNavigation a.dropdownLink{
     padding-left:16px;
   }
-  
+
   .publicNavigation a.dropdownLink:hover{
     background:var(--purples--purple-200);
   }
@@ -109,7 +109,7 @@
     border-radius:4px;
     color: var(--blacks--black-700);
   }
-  
+
   .dropdownHeaderText:hover{
     color: var(--purples--purple-1000);
     background-color: var(--purples--purple-200);
@@ -208,7 +208,7 @@
   .publicNavigation ul li:nth-of-type(6) div:nth-of-type(2) a:hover {
     background:var(--purples--purple-200);
   }
-  
+
   .publicNavigation li:nth-of-type(7) div span:hover{
     background:var(--purples--purple-300);
     box-shadow:var(--global-box-shadow);
@@ -229,8 +229,43 @@
   .publicNavigation ul li:nth-of-type(7) div:nth-of-type(2) a:hover {
     background:var(--purples--purple-200);
   }
-  
+
   .loginLink:hover {
+    background: var(--purples--purple-300);
+    box-shadow: var(--global-box-shadow);
+  }
+
+  .logoutButton {
+    background: var(--purples--purple-900);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: var(--body--body0);
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    font-family: inherit;
+  }
+
+  .logoutButton:hover {
+    background: var(--purples--purple-1000);
+    box-shadow: var(--global-box-shadow);
+  }
+
+  .dashboardLink {
+    display: block;
+    padding: 8px 16px;
+    background: var(--purples--purple-200);
+    color: var(--purples--purple-1000);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .dashboardLink:hover {
     background: var(--purples--purple-300);
     box-shadow: var(--global-box-shadow);
   }

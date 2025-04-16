@@ -1,0 +1,161 @@
+/* Base Typography Styles */
+.typography {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+/* Typography Variants */
+.variant-h1 {
+  font-size: var(--headings--h1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.variant-h2 {
+  font-size: var(--headings--h2);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.variant-h3 {
+  font-size: var(--headings--h3);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+}
+
+.variant-h4 {
+  font-size: var(--headings--h4);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+}
+
+.variant-h5 {
+  font-size: var(--headings--h5);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.variant-h6 {
+  font-size: var(--headings--h6);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.variant-subtitle1 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.variant-subtitle2 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.variant-body1 {
+  font-size: var(--body--body0);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.variant-body2 {
+  font-size: var(--body--body1);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.variant-caption {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.variant-overline {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Typography Alignment */
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-justify {
+  text-align: justify;
+}
+
+/* Typography Colors */
+.color-default {
+  color: var(--blacks--black-800);
+}
+
+.color-primary {
+  color: var(--purples--purple-1000);
+}
+
+.color-secondary {
+  color: var(--purples--purple-800);
+}
+
+.color-success {
+  color: #2e7d32;
+}
+
+.color-error {
+  color: #d32f2f;
+}
+
+.color-warning {
+  color: #f57c00;
+}
+
+.color-info {
+  color: #0288d1;
+}
+
+/* Typography Display */
+.block {
+  display: block;
+}
+
+.noWrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gutterBottom {
+  margin-bottom: 0.35em;
+}
+
+/* Responsive Typography */
+@media (max-width: 600px) {
+  .variant-h1 {
+    font-size: calc(var(--headings--h1) * 0.8);
+  }
+  
+  .variant-h2 {
+    font-size: calc(var(--headings--h2) * 0.8);
+  }
+  
+  .variant-h3 {
+    font-size: calc(var(--headings--h3) * 0.8);
+  }
+}

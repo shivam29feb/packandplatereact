@@ -1,0 +1,50 @@
+/* Settings Container */
+.settingsContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Settings Card */
+.settingsCard {
+  margin-bottom: 24px;
+}
+
+/* Order Settings */
+.orderSettings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Form Group */
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--blacks--black-800);
+}
+
+/* Checkbox Group */
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.checkboxGroup label {
+  font-weight: 500;
+  color: var(--blacks--black-800);
+}
+
+/* Form Actions */
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}

@@ -26,7 +26,7 @@ My coding principles
 I never write code outside of the media queries,
 the css code class and id hierarchy adheres to the chronology, hierarchy of html structure classes and ids
 I never use flex box
-I write responsive code for 320px, 576px, 768px, 990px, 1200px, 1400px
+I write responsive code for 320px, 576px, 768px, 990px, 1200px, 1400px, 1600px, 1920px
 I never use max-width in the media queries, always use min-width in media queries. Eg (min-width:320px), (min-width:576px) and so on.
 I use grids
 I use vh and vw units most of the times
@@ -108,3 +108,4 @@ UI/UX Design Principles:
     - Use appropriate input controls for data types
     - Confirm destructive actions before executing
 
+Whenever i ask you to start the karyapravah mysql mcp server then read the karyapravah readme file to understand how to use the mysql mcp server to query the database. Donot start creating any additional files to connect to the karyapravah mysql mcp server because all the required files are already present in the karyapravah directory. 

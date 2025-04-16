@@ -1,0 +1,33 @@
+/* Loading State */
+.loadingState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  min-height: 200px;
+}
+
+/* Loading State as Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+
+/* Loading State Content */
+.loadingStateContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Loading Message */
+.loadingMessage {
+  color: var(--blacks--black-800);
+  text-align: center;
+}

@@ -1,0 +1,14 @@
+.loginForm {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.errorMessage {
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: 4px;
+  background-color: rgba(211, 47, 47, 0.1);
+  border-left: 4px solid #d32f2f;
+}

@@ -1,0 +1,113 @@
+/* Base Card Styles */
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Card Variants */
+.variant-elevated {
+  box-shadow: var(--global-box-shadow);
+}
+
+.variant-outlined {
+  border: 1px solid var(--blacks--black-200);
+}
+
+.variant-filled {
+  background-color: var(--purples--purple-100);
+}
+
+/* Clickable Card */
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.clickable:active {
+  transform: translateY(0);
+}
+
+/* Full Width */
+.fullWidth {
+  max-width: none;
+}
+
+/* Card Header */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid var(--blacks--black-100);
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--blacks--black-900);
+}
+
+.subheader {
+  font-size: 0.875rem;
+  color: var(--blacks--black-600);
+  margin-top: 4px;
+}
+
+.action {
+  margin-left: 16px;
+}
+
+/* Card Content */
+.cardContent {
+  padding: 16px;
+  flex-grow: 1;
+}
+
+/* Card Actions */
+.cardActions {
+  display: flex;
+  padding: 8px 16px;
+  border-top: 1px solid var(--blacks--black-100);
+}
+
+.align-left {
+  justify-content: flex-start;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+.align-right {
+  justify-content: flex-end;
+}
+
+/* Card Media */
+.cardMedia {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .card {
+    max-width: 100%;
+  }
+}

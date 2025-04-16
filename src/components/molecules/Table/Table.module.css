@@ -1,0 +1,91 @@
+/* Table Container */
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Base Table Styles */
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* Table Head */
+.tableHead {
+  background-color: var(--purples--purple-100);
+}
+
+.tableHead .tableCell {
+  font-weight: 600;
+  color: var(--purples--purple-1000);
+}
+
+/* Table Body */
+.tableBody .tableRow:hover {
+  background-color: var(--purples--purple-50);
+}
+
+/* Table Row */
+.tableRow {
+  border-bottom: 1px solid var(--blacks--black-200);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* Table Cell */
+.tableCell {
+  padding: 12px 16px;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+/* Table Variants */
+.variant-simple {
+  /* Default styles */
+}
+
+.variant-striped .tableBody .tableRow:nth-child(odd) {
+  background-color: var(--purples--purple-50);
+}
+
+.variant-bordered {
+  border: 1px solid var(--blacks--black-200);
+}
+
+.variant-bordered .tableCell {
+  border: 1px solid var(--blacks--black-200);
+}
+
+/* Table Sizes */
+.size-small .tableCell {
+  padding: 8px 12px;
+  font-size: 0.875rem;
+}
+
+.size-medium .tableCell {
+  padding: 12px 16px;
+  font-size: 1rem;
+}
+
+.size-large .tableCell {
+  padding: 16px 24px;
+  font-size: 1.125rem;
+}
+
+/* Full Width */
+.fullWidth {
+  width: 100%;
+}

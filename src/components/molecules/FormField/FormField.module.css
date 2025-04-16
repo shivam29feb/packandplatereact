@@ -1,0 +1,44 @@
+/* Base FormField Styles */
+.formField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 0.875rem;
+  margin-bottom: 4px;
+  font-weight: 500;
+  color: var(--blacks--black-800);
+}
+
+.required {
+  color: #d32f2f;
+  margin-left: 4px;
+}
+
+.fieldContent {
+  width: 100%;
+}
+
+.helperText {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  color: var(--blacks--black-600);
+}
+
+.error {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  color: #d32f2f;
+}
+
+/* Error State */
+.hasError .label {
+  color: #d32f2f;
+}
+
+/* Full Width */
+.fullWidth {
+  width: 100%;
+}

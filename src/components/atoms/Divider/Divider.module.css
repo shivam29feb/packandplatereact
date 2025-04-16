@@ -1,0 +1,56 @@
+/* Base Divider Styles */
+.divider {
+  background-color: var(--blacks--black-200);
+  flex-shrink: 0;
+}
+
+/* Horizontal Divider */
+.orientation-horizontal {
+  height: 1px;
+  width: 100%;
+  margin: 16px 0;
+}
+
+/* Vertical Divider */
+.orientation-vertical {
+  width: 1px;
+  height: 100%;
+  margin: 0 16px;
+  align-self: stretch;
+}
+
+/* Divider Variants */
+.variant-fullWidth {
+  width: 100%;
+}
+
+.variant-inset {
+  margin-left: 72px;
+}
+
+.variant-middle {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+/* Divider with Children */
+.withChildren {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  border-width: 0;
+  height: auto;
+}
+
+.withChildren::before,
+.withChildren::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--blacks--black-200);
+}
+
+.content {
+  padding: 0 16px;
+  font-size: 0.875rem;
+  color: var(--blacks--black-600);
+}

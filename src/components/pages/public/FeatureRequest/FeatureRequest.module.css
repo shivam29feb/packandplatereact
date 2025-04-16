@@ -1,23 +1,133 @@
 @media screen and (min-width:320px){
+    .feature-request-container{
+        display: block;
+        width: calc(100% - 32px);
+        margin-top: 48px;
+        padding: 16px;
+    }
 
+    .form-container{
+        display: block;
+        width: 100%;
+    }
+
+    .form-container h5{
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: var(--blacks--black-1000);
+    }
+
+    .form-description {
+        margin-bottom: 24px;
+        color: var(--blacks--black-800);
+    }
+
+    .feature-form-field{
+        display: block;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .feature-form-field label{
+        display: block;
+        width: 100%;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .feature-form-field input,
+    .feature-form-field select{
+        display: block;
+        width: calc(100% - 32px);
+        padding: 8px 16px;
+        border: 1px solid var(--blacks--black-200);
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    .feature-form-field textarea{
+        display: block;
+        width: calc(100% - 32px);
+        height: 120px;
+        padding: 8px 16px;
+        border: 1px solid var(--blacks--black-200);
+        border-radius: 4px;
+        font-size: 16px;
+        resize: vertical;
+    }
+
+    .terms-agreement {
+        margin: 16px 0;
+        font-size: 14px;
+        color: var(--blacks--black-600);
+    }
+
+    .terms-agreement a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .terms-agreement a:hover {
+        text-decoration: underline;
+    }
+
+    .success-message {
+        text-align: center;
+        padding: 24px 0;
+    }
+
+    .success-message h5 {
+        color: var(--success-color, #28a745);
+        margin-bottom: 16px;
+    }
+
+    .success-message p {
+        margin-bottom: 16px;
+        color: var(--blacks--black-800);
+    }
+
+    .success-message button {
+        margin-top: 16px;
+    }
 }
 
 @media screen and (min-width:576px){
-
+    .form-container{
+        display: block;
+        width: 80%;
+        padding: 32px;
+        box-shadow: var(--global-box-shadow, 0 2px 8px rgba(0,0,0,0.1));
+        margin: 0 auto;
+        border-radius: 8px;
+        background-color: white;
+    }
 }
 
 @media screen and (min-width:768px){
+    .feature-request-container{
+        margin-top: 64px;
+    }
 
+    .form-container{
+        width: 70%;
+    }
 }
 
 @media screen and (min-width:990px){
-
+    .form-container{
+        width: 60%;
+    }
 }
 
 @media screen and (min-width:1200px){
-
+    .form-container{
+        width: 50%;
+        max-width: 800px;
+    }
 }
 
 @media screen and (min-width:1400px){
-
+    .feature-request-container{
+        margin-top: 80px;
+    }
 }

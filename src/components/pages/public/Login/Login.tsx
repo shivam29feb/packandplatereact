@@ -1,108 +1,66 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { login } from '../../../../services/loginService';
+import React, { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './Login.module.css';
-
-// Define user types for type safety
-type UserType = 'admin' | 'member' | 'customer';
-
-// Define the response type from login service
-interface LoginResponse {
-  success: boolean;
-  message: string;
-  user?: {
-    type: UserType;
-    // Add other user properties as needed
-  };
-}
+import { useAuth, UserType } from '../../../../context/AuthContext';
+import LoginForm from '../../../organisms/LoginForm/LoginForm';
+import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
+import Typography from '../../../atoms/Typography/Typography';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState('');
-  
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    userType: 'member' as UserType // Type assertion to ensure it's a valid UserType
-  });
+  const location = useLocation();
+  const { isAuthenticated, user } = useAuth();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      const dashboardRoutes: Record<UserType, string> = {
+        'admin': '/admin/dashboard',
+        'system-admin': '/admin/dashboard',
+        'member': '/member/dashboard',
+        'customer': '/customer/dashboard'
+      };
+
+      // Redirect to the appropriate dashboard
+      const from = location.state?.from?.pathname || dashboardRoutes[user.type];
+      navigate(from, { replace: true });
+    }
+  }, [isAuthenticated, user, navigate, location]);
+
+  const handleLoginSuccess = () => {
+    // Additional success handling if needed
+    console.log('Login successful');
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const response = await login(formData.email, formData.password, formData.userType) as LoginResponse;
-      setMessage(response.message);
-      
-      if (response.success) {
-        alert('Login successful');
-        // Redirect based on user type
-        const dashboardRoutes: Record<UserType, string> = {
-          'admin': '/admin/dashboard',
-          'member': '/member/dashboard',
-          'customer': '/customer/dashboard'
-        };
-        
-        // Use type assertion to ensure userType is valid
-        const userType = (response.user?.type || 'member') as UserType;
-        navigate(dashboardRoutes[userType]);
-      }
-    } catch (error) {
-      setMessage('Error logging in');
-    }
+  const handleLoginError = (error: string) => {
+    // Additional error handling if needed
+    console.error('Login error:', error);
   };
 
   return (
-    <div className={styles.loginContainer}>
-      <h2>Login</h2>
-      {message && <p className={message.includes('successful') ? styles.success : styles.error}>{message}</p>}
-      <form onSubmit={handleSubmit}>
-        <div className={styles.formGroup}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+    <div className={styles.pageContainer}>
+      <PublicNavigation />
+
+      <div className={styles.loginContainer}>
+        <div className={styles.loginHeader}>
+          <Typography variant="h3" align="center" gutterBottom>
+            Welcome Back
+          </Typography>
+          <Typography variant="body1" align="center" color="secondary">
+            Sign in to continue to your account
+          </Typography>
         </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="userType">Login As</label>
-          <select
-            id="userType"
-            name="userType"
-            value={formData.userType}
-            onChange={(e) => setFormData({...formData, userType: e.target.value as UserType})}
-          >
-            <option value="member">Member</option>
-            <option value="admin">Admin</option>
-            <option value="customer">Customer</option>
-          </select>
-        </div>
-        <button type="submit" className={styles.submitButton}>Login</button>
-      </form>
+
+        <LoginForm
+          onSuccess={handleLoginSuccess}
+          onError={handleLoginError}
+        />
+      </div>
     </div>
   );
 };
 
 export default Login;
+
 
 

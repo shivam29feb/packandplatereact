@@ -43,8 +43,16 @@ if (empty($email) || empty($password)) {
 
 try {
     // Check if user exists
-    $stmt = $pdo->prepare("SELECT user_id, user_username, user_email, user_password_hash, user_type FROM users WHERE user_email = ? AND user_type = ?");
-    $stmt->execute([$email, $userType]);
+    if ($userType === 'admin') {
+        // For admin login, check for system-admin user type
+        $stmt = $pdo->prepare("SELECT user_id, user_username, user_email, user_password_hash, 'admin' as user_type FROM users WHERE user_email = ? AND user_type = 'system-admin'");
+        $stmt->execute([$email]);
+    } else {
+        // Check in users table for members and customers
+        $stmt = $pdo->prepare("SELECT user_id, user_username, user_email, user_password_hash, user_type FROM users WHERE user_email = ? AND user_type = ?");
+        $stmt->execute([$email, $userType]);
+    }
+
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
@@ -52,18 +60,19 @@ try {
         exit;
     }
 
-    // Verify password
-    if (password_verify($password, $user['user_password_hash'])) {
+        // Special case for admin login during development
+                // Verify password
+                if (password_verify($password, $user['user_password_hash'])) {
         // Set session variables
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_type'] = $user['user_type'];
-        
+
         // Update last login time
         $updateStmt = $pdo->prepare("UPDATE users SET user_last_login = NOW() WHERE user_id = ?");
         $updateStmt->execute([$user['user_id']]);
-        
+
         echo json_encode([
-            'success' => true, 
+            'success' => true,
             'message' => 'Login successful',
             'user' => [
                 'id' => $user['user_id'],
@@ -79,3 +88,5 @@ try {
     echo json_encode(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
 }
 ?>
+
+

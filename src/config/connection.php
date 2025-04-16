@@ -15,7 +15,7 @@ try {
         $pdo = new PDO(
             'mysql:host=localhost;dbname=packandplate',
             'root',
-            ''
+            'ujkxco2920@'
         );
     }
     // Set the PDO error mode to exception

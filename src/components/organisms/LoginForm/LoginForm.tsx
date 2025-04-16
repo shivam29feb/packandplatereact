@@ -1,0 +1,193 @@
+import React, { useState } from 'react';
+import styles from './LoginForm.module.css';
+import Form from '../../molecules/Form/Form';
+import FormField from '../../molecules/FormField/FormField';
+import Input from '../../atoms/Input/Input';
+import Select from '../../atoms/Select/Select';
+import Typography from '../../atoms/Typography/Typography';
+import { UserType, useAuth } from '../../../context/AuthContext';
+
+interface LoginFormProps {
+  /**
+   * Callback for when the login is successful
+   */
+  onSuccess?: () => void;
+
+  /**
+   * Callback for when the login fails
+   */
+  onError?: (error: string) => void;
+}
+
+/**
+ * LoginForm component that uses our atomic components
+ */
+const LoginForm: React.FC<LoginFormProps> = ({
+  onSuccess,
+  onError,
+}) => {
+  const { login, isLoading, error, clearError } = useAuth();
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    userType: 'member' as UserType
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+
+    // Clear form errors when user types
+    if (formErrors[name as keyof typeof formErrors]) {
+      setFormErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+
+    // Clear auth error when user types
+    if (error) {
+      clearError();
+    }
+  };
+
+  const validateForm = (): boolean => {
+    let isValid = true;
+    const newErrors = { email: '', password: '' };
+
+    // Validate email
+    if (!formData.email) {
+      newErrors.email = 'Email is required';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid';
+      isValid = false;
+    }
+
+    // Validate password
+    if (!formData.password) {
+      newErrors.password = 'Password is required';
+      isValid = false;
+    } else if (formData.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters';
+      isValid = false;
+    }
+
+    setFormErrors(newErrors);
+    return isValid;
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Validate form
+    if (!validateForm()) {
+      return;
+    }
+
+    try {
+      await login(formData.email, formData.password, formData.userType);
+      
+      // If no error was thrown, the login was successful
+      // The AuthContext will handle setting the user and authentication state
+      onSuccess?.();
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'An error occurred';
+      onError?.(errorMessage);
+    }
+  };
+
+  const userTypeOptions = [
+    { value: 'member', label: 'Member' },
+    { value: 'admin', label: 'Admin' },
+    { value: 'customer', label: 'Customer' }
+  ];
+
+  return (
+    <div className={styles.loginForm}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Login to Your Account
+      </Typography>
+
+      <Typography variant="body2" align="center" color="secondary" gutterBottom>
+        Enter your credentials to access your account
+      </Typography>
+
+      {error && (
+        <div className={styles.errorMessage}>
+          <Typography variant="body2" color="error">
+            {error}
+          </Typography>
+        </div>
+      )}
+
+      <Form
+        onSubmit={handleSubmit}
+        submitText="Login"
+        isSubmitting={isLoading}
+        fullWidth
+      >
+        <FormField
+          label="Email"
+          required
+          error={formErrors.email}
+        >
+          <Input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter your email"
+            fullWidth
+            disabled={isLoading}
+            status={formErrors.email ? 'error' : 'default'}
+          />
+        </FormField>
+
+        <FormField
+          label="Password"
+          required
+          error={formErrors.password}
+        >
+          <Input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Enter your password"
+            fullWidth
+            disabled={isLoading}
+            status={formErrors.password ? 'error' : 'default'}
+          />
+        </FormField>
+
+        <FormField
+          label="Login As"
+        >
+          <Select
+            name="userType"
+            value={formData.userType}
+            onChange={handleChange}
+            options={userTypeOptions}
+            fullWidth
+            disabled={isLoading}
+          />
+        </FormField>
+      </Form>
+    </div>
+  );
+};
+
+export default LoginForm;
+
+

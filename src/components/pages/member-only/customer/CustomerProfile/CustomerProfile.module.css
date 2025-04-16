@@ -1,0 +1,114 @@
+/* Profile Container */
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Profile Section */
+.profileSection {
+  width: 100%;
+}
+
+/* Info Section */
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Orders Card */
+.ordersCard {
+  width: 100%;
+}
+
+/* View All Link */
+.viewAllLink {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Payment Card */
+.paymentCard {
+  width: 100%;
+}
+
+/* Add Payment Link */
+.addPaymentLink {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Payment Methods List */
+.paymentMethodsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Payment Method Item */
+.paymentMethodItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--purples--purple-50);
+  border-radius: 8px;
+}
+
+/* Payment Method Info */
+.paymentMethodInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Payment Method Type */
+.paymentMethodType {
+  font-weight: 500;
+}
+
+/* Payment Method Actions */
+.paymentMethodActions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Stats Card */
+.statsCard {
+  width: 100%;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Stat Item */
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px;
+  background-color: var(--purples--purple-50);
+  border-radius: 8px;
+}
+
+/* Responsive Styles */
+@media (min-width: 1024px) {
+  .profileContainer {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .profileSection {
+    flex: 3;
+  }
+  
+  .infoSection {
+    flex: 2;
+  }
+}

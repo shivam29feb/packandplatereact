@@ -1,0 +1,165 @@
+/* Settings Form Container */
+.settingsFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Settings Card */
+.settingsCard {
+  width: 100%;
+}
+
+/* Form Group */
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--blacks--black-800);
+}
+
+/* Checkbox Group */
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.checkboxGroup label {
+  font-weight: 500;
+  color: var(--blacks--black-800);
+}
+
+/* Notification Settings */
+.notificationSettings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Notification Header */
+.notificationHeader {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--blacks--black-200);
+}
+
+/* Column Header */
+.columnHeader {
+  font-weight: 600;
+}
+
+/* Notification Item */
+.notificationItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--blacks--black-100);
+}
+
+/* Notification Label */
+.notificationLabel {
+  flex: 1;
+}
+
+/* Notification Channels */
+.notificationChannels {
+  display: flex;
+  gap: 24px;
+}
+
+/* Privacy Settings */
+.privacySettings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Privacy Item */
+.privacyItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--blacks--black-100);
+}
+
+/* Privacy Label */
+.privacyLabel {
+  flex: 1;
+}
+
+/* Privacy Control */
+.privacyControl {
+  display: flex;
+  align-items: center;
+}
+
+/* Appearance Settings */
+.appearanceSettings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Danger Card */
+.dangerCard {
+  width: 100%;
+  border: 1px solid #ffcdd2;
+}
+
+/* Danger Zone */
+.dangerZone {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Danger Item */
+.dangerItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #ffebee;
+  border-radius: 8px;
+}
+
+/* Danger Info */
+.dangerInfo {
+  flex: 1;
+}
+
+/* Delete Modal Content */
+.deleteModalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Delete Warning */
+.deleteWarning {
+  color: #d32f2f;
+  font-weight: 500;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .notificationItem,
+  .privacyItem,
+  .dangerItem {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .notificationChannels {
+    justify-content: space-between;
+    width: 100%;
+  }
+}

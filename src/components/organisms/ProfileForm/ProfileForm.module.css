@@ -1,0 +1,107 @@
+/* Profile Form Container */
+.profileFormContainer {
+  width: 100%;
+}
+
+/* Profile Card */
+.profileCard {
+  width: 100%;
+}
+
+/* Profile Form */
+.profileForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Profile Header */
+.profileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Avatar Section */
+.avatarSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* User Info */
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Form Section */
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Section Title */
+.sectionTitle {
+  margin-bottom: 8px;
+}
+
+/* Form Row */
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Form Group */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.formGroup label {
+  font-weight: 500;
+  color: var(--blacks--black-800);
+}
+
+/* Form Actions */
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Password Form */
+.passwordForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .profileHeader {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .userInfo {
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .formRow {
+    flex-direction: row;
+    gap: 24px;
+  }
+}

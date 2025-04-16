@@ -1,0 +1,370 @@
+/* Menu Content */
+.menuContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Filters Card */
+.filtersCard {
+  margin-bottom: 0;
+}
+
+/* Filters Container */
+.filtersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Search Container */
+.searchContainer {
+  flex: 1;
+}
+
+/* Sort Container */
+.sortContainer {
+  width: 100%;
+}
+
+/* Categories Container */
+.categoriesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Category Button */
+.categoryButton {
+  padding: 8px 16px;
+  background-color: var(--purples--purple-100);
+  color: var(--purples--purple-1000);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.categoryButton:hover {
+  background-color: var(--purples--purple-200);
+}
+
+.categoryButton.active {
+  background-color: var(--purples--purple-1000);
+  color: white;
+}
+
+/* Menu Items Grid */
+.menuItemsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+}
+
+/* Menu Item Card */
+.menuItemCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Menu Item Image Container */
+.menuItemImageContainer {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+/* Menu Item Image */
+.menuItemImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menuItemCard:hover .menuItemImage {
+  transform: scale(1.05);
+}
+
+/* Favorite Button */
+.favoriteButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--blacks--black-400);
+  transition: all 0.2s ease-in-out;
+}
+
+.favoriteButton:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.favoriteButton.active {
+  color: #e91e63;
+}
+
+/* Menu Item Header */
+.menuItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+/* Menu Item Name */
+.menuItemName {
+  margin: 0;
+  flex: 1;
+}
+
+/* Menu Item Rating */
+.menuItemRating {
+  color: #ffc107;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.ratingValue {
+  margin-left: 4px;
+  color: var(--blacks--black-600);
+}
+
+/* Menu Item Description */
+.menuItemDescription {
+  margin-bottom: 16px;
+  color: var(--blacks--black-600);
+  flex-grow: 1;
+}
+
+/* Menu Item Footer */
+.menuItemFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Menu Item Price */
+.menuItemPrice {
+  font-weight: 600;
+  color: var(--purples--purple-1000);
+}
+
+/* Menu Item Actions */
+.menuItemActions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Item Details Container */
+.itemDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Item Details Image Container */
+.itemDetailsImageContainer {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Item Details Image */
+.itemDetailsImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Item Details Header */
+.itemDetailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Item Details Rating */
+.itemDetailsRating {
+  color: #ffc107;
+}
+
+/* Item Details Description */
+.itemDetailsDescription {
+  margin-bottom: 16px;
+}
+
+/* Item Details Price */
+.itemDetailsPrice {
+  color: var(--purples--purple-1000);
+}
+
+/* Cart Items Container */
+.cartItemsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Cart Item */
+.cartItem {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: var(--purples--purple-50);
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Cart Item Image Container */
+.cartItemImageContainer {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+/* Cart Item Image */
+.cartItemImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Cart Item Info */
+.cartItemInfo {
+  flex: 1;
+}
+
+/* Cart Item Name */
+.cartItemName {
+  font-weight: 500;
+}
+
+/* Cart Item Price */
+.cartItemPrice {
+  color: var(--blacks--black-600);
+}
+
+/* Cart Item Quantity */
+.cartItemQuantity {
+  display: flex;
+  align-items: center;
+  margin: 0 16px;
+}
+
+/* Quantity Button */
+.quantityButton {
+  width: 24px;
+  height: 24px;
+  background-color: var(--purples--purple-200);
+  color: var(--purples--purple-1000);
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Quantity Value */
+.quantityValue {
+  margin: 0 8px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Cart Item Total */
+.cartItemTotal {
+  font-weight: 600;
+  color: var(--purples--purple-1000);
+  margin: 0 16px;
+}
+
+/* Remove Button */
+.removeButton {
+  background: none;
+  border: none;
+  color: var(--blacks--black-600);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.removeButton:hover {
+  color: var(--blacks--black-900);
+}
+
+/* Cart Total */
+.cartTotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-top: 1px solid var(--blacks--black-200);
+  margin-top: 16px;
+}
+
+/* Empty Cart Message */
+.emptyCartMessage {
+  text-align: center;
+  padding: 24px;
+  color: var(--blacks--black-600);
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .filtersContainer {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .sortContainer {
+    width: auto;
+    min-width: 200px;
+  }
+  
+  .menuItemsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .itemDetailsContainer {
+    flex-direction: row;
+  }
+  
+  .itemDetailsImageContainer {
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+  }
+  
+  .itemDetailsInfo {
+    flex: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menuItemsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .menuItemsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

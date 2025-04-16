@@ -1,0 +1,130 @@
+/* Dashboard Content */
+.dashboardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Welcome Section */
+.welcomeSection {
+  margin-bottom: 8px;
+}
+
+.welcomeCard {
+  background: linear-gradient(135deg, var(--purples--purple-800) 0%, var(--purples--purple-1000) 100%);
+  color: white;
+}
+
+.welcomeContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Stats Row */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+}
+
+/* Stat Card */
+.statCard {
+  padding: 16px;
+}
+
+/* Main Content */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Orders Card */
+.ordersCard {
+  height: 100%;
+}
+
+/* Side Section */
+.sideSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Favorites Card */
+.favoritesCard {
+  height: 100%;
+}
+
+/* Favorites List */
+.favoritesList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Favorite Item */
+.favoriteItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 4px;
+  background-color: var(--purples--purple-50);
+}
+
+.favoriteInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.favoriteName {
+  font-weight: 500;
+}
+
+/* Recommendations Card */
+.recommendationsCard {
+  height: 100%;
+}
+
+/* Recommendations List */
+.recommendationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Recommendation Item */
+.recommendationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 4px;
+  background-color: var(--purples--purple-50);
+}
+
+.recommendationInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .welcomeContent {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .statsRow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .mainContent {
+    grid-template-columns: 3fr 2fr;
+  }
+}

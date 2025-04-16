@@ -1,0 +1,172 @@
+/* Orders Content */
+.ordersContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Filters Card */
+.filtersCard {
+  margin-bottom: 0;
+}
+
+/* Filters Container */
+.filtersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Search Container */
+.searchContainer {
+  flex: 1;
+}
+
+/* Filter Controls */
+.filterControls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Orders Grid */
+.ordersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Order Card */
+.orderCard {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Order Header */
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+/* Order Info */
+.orderInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Order Items */
+.orderItems {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--blacks--black-100);
+}
+
+/* Order Item */
+.orderItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* More Items */
+.moreItems {
+  color: var(--blacks--black-600);
+  font-style: italic;
+}
+
+/* Order Footer */
+.orderFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Order Total */
+.orderTotal {
+  font-weight: 500;
+}
+
+/* Order Actions */
+.orderActions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Empty State Card */
+.emptyStateCard {
+  grid-column: 1 / -1;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  gap: 16px;
+}
+
+/* Order Details Container */
+.orderDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Order Details Header */
+.orderDetailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Order Details Info */
+.orderDetailsInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Order Status Info */
+.orderStatusInfo {
+  background-color: var(--purples--purple-50);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* Order Details Section */
+.orderDetailsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .filtersContainer {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .filterControls {
+    flex-direction: row;
+    width: auto;
+    min-width: 400px;
+  }
+  
+  .ordersGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ordersGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

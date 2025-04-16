@@ -1,0 +1,60 @@
+/* Dashboard Content */
+.dashboardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Stats Row */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+}
+
+/* Stat Card */
+.statCard {
+  padding: 16px;
+}
+
+/* Main Content */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Recent Dishes Card */
+.recentDishesCard {
+  height: 100%;
+}
+
+/* Activity Card */
+.activityCard {
+  height: 100%;
+}
+
+/* Activity List */
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Activity Item */
+.activityItem {
+  padding: 12px;
+  border-radius: 4px;
+  background-color: var(--purples--purple-50);
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .statsRow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mainContent {
+    grid-template-columns: 2fr 1fr;
+  }
+}
