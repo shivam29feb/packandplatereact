@@ -102,23 +102,68 @@ const Pricing: React.FC = () => {
         </div>
       </section>
 
-      <section className="features-section">
+      <section className={styles.featuresSection} id="features">
         <h2>Features</h2>
-        <p>Our software provides a range of features to help you manage your mess or parcel point more efficiently.</p>
-        <ul>
-          <li>Membership Management: Easily manage your member data, including contact information and payment history.</li>
-          <li>Reporting and Analytics: Get detailed insights into your business performance with our reporting and analytics tools.</li>
-          <li>Customer Support: Get priority support from our team of experts.</li>
+        <p>Our software provides a range of features to help you manage your mess or parcel point more efficiently</p>
+        <ul className={styles.featuresList}>
+          <li className={styles.featureItem}>
+            <strong>Membership Management</strong>
+            <p>Easily manage your member data, including contact information and payment history. Keep track of all your customers in one place.</p>
+          </li>
+          <li className={styles.featureItem}>
+            <strong>Reporting and Analytics</strong>
+            <p>Get detailed insight into your business performance with our reporting and analytics tools. Make data-driven decisions to grow your business.</p>
+          </li>
+          <li className={styles.featureItem}>
+            <strong>Customer Support</strong>
+            <p>Get priority support from our team of experts who are available to help you with any questions or issues you may have.</p>
+          </li>
+          <li className={styles.featureItem}>
+            <strong>Menu Planning</strong>
+            <p>Create and manage your menu plans easily. Let your customers know what's on the menu in advance.</p>
+          </li>
+          <li className={styles.featureItem}>
+            <strong>Attendance Tracking</strong>
+            <p>Track customer attendance and manage daily meal counts with our intuitive system. No more manual record keeping.</p>
+          </li>
+          <li className={styles.featureItem}>
+            <strong>Payment Processing</strong>
+            <p>Accept payments online and keep track of all transactions. Automated reminders for due payments.</p>
+          </li>
         </ul>
       </section>
 
-      <section className="why-choose-us-section">
+      <section className={styles.whyChooseUsSection} id="why-choose-us">
         <h2>Why Choose Us</h2>
         <p>We're committed to providing the best mess or parcel point management solution for your business.</p>
-        <ul>
-          <li>Reliable and Secure: Our software is designed with security and reliability in mind.</li>
-          <li>Local Support: Our support team is based locally, providing you with prompt and efficient support.</li>
-          <li>Customized Solutions: Our software can be customized to fit your unique needs and requirements.</li>
+        <ul className={styles.whyChooseUsList}>
+          <li className={styles.whyChooseUsItem}>
+            <div className={styles.whyChooseUsIcon}>
+              <i className="fas fa-shield-alt"></i>
+            </div>
+            <div className={styles.whyChooseUsContent}>
+              <strong>Reliable and Secure</strong>
+              <p>Our software is designed with security and reliability in mind, ensuring your data is always safe and accessible.</p>
+            </div>
+          </li>
+          <li className={styles.whyChooseUsItem}>
+            <div className={styles.whyChooseUsIcon}>
+              <i className="fas fa-headset"></i>
+            </div>
+            <div className={styles.whyChooseUsContent}>
+              <strong>Local Support</strong>
+              <p>Our support team is based locally, providing you with prompt and efficient support whenever you need it.</p>
+            </div>
+          </li>
+          <li className={styles.whyChooseUsItem}>
+            <div className={styles.whyChooseUsIcon}>
+              <i className="fas fa-cogs"></i>
+            </div>
+            <div className={styles.whyChooseUsContent}>
+              <strong>Customized Solutions</strong>
+              <p>Our software can be customized to fit your unique needs and requirements, adapting to your business model.</p>
+            </div>
+          </li>
         </ul>
       </section>
 

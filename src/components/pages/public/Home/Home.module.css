@@ -1,4 +1,9 @@
 @media screen and (min-width:320px){
+  .home-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   .home-container {
     padding: 10px;
     font-size: 14px;
@@ -8,7 +13,8 @@
     display:block;
     width: calc(100% - 32px);
     margin: 0 16px;
-    margin-top: 72px;
+    margin-top: 10vh;
+    min-height: 40vh;
   }
 
   .hero h2{
@@ -95,7 +101,194 @@
     font-size: var(--headings--h4);
   }
 
+  /* How It Works Section */
+  .how-it-works {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 48px 16px;
+  }
 
+  .how-it-works h2 {
+    display: block;
+    width: calc(100% - 16px);
+    margin: 0 16px;
+    margin-bottom: 24px;
+    font-size: var(--headings--h4);
+    text-align: center;
+  }
+
+  .steps-container {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .step {
+    display: block;
+    width: calc(100% - 64px);
+    margin: 24px 16px;
+    padding: 16px;
+    border: 1px solid var(--blacks--black-200);
+    border-radius: 16px;
+    position: relative;
+    background-color: #ffffff;
+  }
+
+  .step-number {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--purples--purple-1000);
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    left: 16px;
+  }
+
+  .step h3 {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 16px 0 8px 0;
+    font-size: var(--headings--h5);
+    font-weight: 600;
+    color: var(--blacks--black-1000);
+  }
+
+  .step p {
+    display: block;
+    width: 100%;
+    margin: 0;
+    color: var(--blacks--black-600);
+  }
+
+  /* Testimonials Section */
+  .testimonials {
+    display: block;
+    width: calc(100% - 96px);
+    margin: 48px 16px;
+    background-color: var(--purples--purple-100);
+    padding: 32px;
+    border-radius: 16px;
+  }
+
+  .testimonials h2 {
+    display: block;
+    width: calc(100% - 16px);
+    margin: 0 16px 24px 16px;
+    font-size: var(--headings--h4);
+    text-align: center;
+  }
+
+  .testimonial-container {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    display: block;
+    width: calc(100% - 64px);
+    margin: 24px 16px;
+    padding: 16px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: var(--global-box-shadow);
+  }
+
+  .testimonial-content {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-content p {
+    font-style: italic;
+    color: var(--blacks--black-800);
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+
+  .testimonial-author {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--purples--purple-300);
+    border-radius: 50%;
+  }
+
+  .testimonial-info h4 {
+    margin: 0;
+    font-weight: 600;
+    color: var(--blacks--black-1000);
+  }
+
+  .testimonial-info p {
+    margin: 4px 0 0 0;
+    font-size: 12px;
+    color: var(--blacks--black-600);
+  }
+
+  /* FAQ Section */
+  .faq {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 48px 16px;
+  }
+
+  .faq h2 {
+    display: block;
+    width: calc(100% - 16px);
+    margin: 0 16px 24px 16px;
+    font-size: var(--headings--h4);
+    text-align: center;
+  }
+
+  .faq-container {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    display: block;
+    width: calc(100% - 64px);
+    margin: 16px;
+    padding: 16px;
+    border: 1px solid var(--blacks--black-200);
+    border-radius: 16px;
+    background-color: white;
+  }
+
+  .faq-item h3 {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 0 0 16px 0;
+    font-size: var(--headings--h5);
+    font-weight: 600;
+    color: var(--blacks--black-1000);
+  }
+
+  .faq-item p {
+    display: block;
+    width: 100%;
+    margin: 0;
+    color: var(--blacks--black-600);
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
 }
 
 @media screen and (min-width:576px){
@@ -124,8 +317,9 @@
 
   .hero .buttons-container{
     display: grid;
-    grid-template-columns:102px 102px;
+    grid-template-columns:1fr 1fr;
     gap:16px;
+    width: 220px;
   }
 
   .hero .buttons-container .primary-button{
@@ -149,12 +343,65 @@
     gap:16px;
     width:calc(100% - 16px);
   }
+
+  /* How It Works - Tablet */
+  .steps-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    width: calc(100% - 16px);
+  }
+
+  .step {
+    margin: 24px 0;
+  }
+
+  /* Testimonials - Tablet */
+  .testimonial-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    width: calc(100% - 16px);
+  }
+
+  .testimonial-card {
+    margin: 0;
+  }
+
+  /* FAQ - Tablet */
+  .faq-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    width: calc(100% - 16px);
+  }
+
+  .faq-item {
+    margin: 0;
+  }
 }
 
 @media screen and (min-width:990px){
   .home-container {
     padding: 40px;
     font-size: 20px;
+  }
+
+  /* How It Works - Desktop */
+  .steps-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  /* Testimonials - Desktop */
+  .testimonial-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  /* FAQ - Desktop */
+  .faq-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 
@@ -163,11 +410,111 @@
     padding: 50px;
     font-size: 22px;
   }
+
+  .how-it-works, .testimonials, .faq {
+    width: 80%;
+    max-width: 1200px;
+    margin: 64px auto;
+  }
+
+  .testimonials {
+    padding: 48px;
+  }
 }
 
 @media screen and (min-width:1400px){
   .home-container {
     padding: 60px;
+    font-size: 24px;
+  }
+
+  .hero h2 {
+    font-size: var(--headings--h3);
+  }
+
+  .value-proposition h2,
+  .feature-highlights h2,
+  .how-it-works h2,
+  .testimonials h2,
+  .faq h2 {
+    font-size: var(--headings--h3);
+  }
+}
+
+@media screen and (min-width:1600px){
+  .home-container {
+    padding: 72px;
+    font-size: 26px;
+  }
+
+  .hero {
+    height: 60vh;
+  }
+
+  .how-it-works,
+  .testimonials,
+  .faq,
+  .value-proposition,
+  .feature-highlights {
+    width: 70%;
+    max-width: 1400px;
+    margin: 80px auto;
+  }
+
+  .step {
+    padding: 24px;
+  }
+
+  .testimonial-card {
+    padding: 24px;
+  }
+
+  .faq-item {
+    padding: 24px;
+  }
+}
+
+@media screen and (min-width:1920px){
+  .home-container {
+    padding: 80px;
+    font-size: 28px;
+  }
+
+  .hero {
+    height: 70vh;
+  }
+
+  .hero h2 {
+    font-size: var(--headings--h2);
+    width: 50%;
+  }
+
+  .hero p {
+    width: 60%;
+    font-size: 1.2rem;
+  }
+
+  .how-it-works,
+  .testimonials,
+  .faq,
+  .value-proposition,
+  .feature-highlights {
+    width: 60%;
+    max-width: 1600px;
+    margin: 96px auto;
+  }
+
+  .value-proposition h2,
+  .feature-highlights h2,
+  .how-it-works h2,
+  .testimonials h2,
+  .faq h2 {
+    font-size: var(--headings--h2);
+  }
+
+  .step-number {
+    width: 48px;
+    height: 48px;
     font-size: 24px;
   }
 }

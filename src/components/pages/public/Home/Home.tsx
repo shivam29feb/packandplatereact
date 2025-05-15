@@ -7,8 +7,8 @@ import styles from './Home.module.css';
 
 const Home = () => {
   return (
-    <div>
-      
+    <div className={styles['home-wrapper']}>
+
       <PublicNavigation />
       <section className={styles['hero']}>
         <h2>Start Your Culinary Journey</h2>
@@ -59,7 +59,98 @@ const Home = () => {
           <button className={`${styles['primary-button']} primary-button`}>Learn More</button>
         </div>
         </div>
-      </section>    
+      </section>
+
+      <section className={styles['how-it-works']}>
+        <h2>How It Works</h2>
+        <div className={styles['steps-container']}>
+          <div className={styles['step']}>
+            <div className={styles['step-number']}>1</div>
+            <h3>Sign Up</h3>
+            <p>Create your account and select a subscription plan that fits your business needs.</p>
+          </div>
+          <div className={styles['step']}>
+            <div className={styles['step-number']}>2</div>
+            <h3>Set Up Your Menu</h3>
+            <p>Add your dishes, set prices, and customize your offerings for your customers.</p>
+          </div>
+          <div className={styles['step']}>
+            <div className={styles['step-number']}>3</div>
+            <h3>Invite Customers</h3>
+            <p>Share your unique link with customers so they can browse your menu and place orders.</p>
+          </div>
+          <div className={styles['step']}>
+            <div className={styles['step-number']}>4</div>
+            <h3>Start Receiving Orders</h3>
+            <p>Manage orders, track deliveries, and grow your food business with ease.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles['testimonials']}>
+        <h2>What Our Users Say</h2>
+        <div className={styles['testimonial-container']}>
+          <div className={styles['testimonial-card']}>
+            <div className={styles['testimonial-content']}>
+              <p>"Pack and Plate has transformed how I manage my mess business. The automated attendance tracking saves me hours every week!"</p>
+            </div>
+            <div className={styles['testimonial-author']}>
+              <div className={styles['testimonial-avatar']}></div>
+              <div className={styles['testimonial-info']}>
+                <h4>Rahul Sharma</h4>
+                <p>Mess Owner, Mumbai</p>
+              </div>
+            </div>
+          </div>
+          <div className={styles['testimonial-card']}>
+            <div className={styles['testimonial-content']}>
+              <p>"As a customer, I love being able to see the menu in advance and manage my subscription easily. The interface is so intuitive!"</p>
+            </div>
+            <div className={styles['testimonial-author']}>
+              <div className={styles['testimonial-avatar']}></div>
+              <div className={styles['testimonial-info']}>
+                <h4>Priya Patel</h4>
+                <p>Customer, Bangalore</p>
+              </div>
+            </div>
+          </div>
+          <div className={styles['testimonial-card']}>
+            <div className={styles['testimonial-content']}>
+              <p>"The analytics feature has given me insights I never had before. I've been able to optimize my menu and increase profits by 30%."</p>
+            </div>
+            <div className={styles['testimonial-author']}>
+              <div className={styles['testimonial-avatar']}></div>
+              <div className={styles['testimonial-info']}>
+                <h4>Amit Verma</h4>
+                <p>Restaurant Owner, Delhi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles['faq']}>
+        <h2>Frequently Asked Questions</h2>
+        <div className={styles['faq-container']}>
+          <div className={styles['faq-item']}>
+            <h3>What is Pack and Plate?</h3>
+            <p>Pack and Plate is a comprehensive management system for mess owners, tiffin services, and food subscription businesses. It helps you manage customers, track attendance, handle payments, and grow your business.</p>
+          </div>
+          <div className={styles['faq-item']}>
+            <h3>How much does it cost?</h3>
+            <p>We offer flexible pricing plans starting from ₹999/month. You can choose a plan based on your business size and requirements. Visit our pricing page for more details.</p>
+          </div>
+          <div className={styles['faq-item']}>
+            <h3>Can I try before I subscribe?</h3>
+            <p>Yes! We offer a 14-day free trial with full access to all features. No credit card required to start your trial.</p>
+          </div>
+          <div className={styles['faq-item']}>
+            <h3>How do customers use the system?</h3>
+            <p>Customers can access your menu, place orders, manage their subscriptions, and make payments through a user-friendly interface. They can use it on any device with a web browser.</p>
+          </div>
+        </div>
+      </section>
+
       <NewsletterSubscription/>
       <Footer />
     </div>

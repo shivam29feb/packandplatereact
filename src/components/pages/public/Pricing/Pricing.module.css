@@ -218,6 +218,235 @@ input:checked + .slider:before {
   background-color: #f0f0f0;
 }
 
+/* Features Section */
+.featuresSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  position: relative;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+}
+
+.featuresSection::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(var(--purples--purple-100-rgb, 245, 240, 255), 0.5);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+  z-index: -1;
+}
+
+.featuresSection h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+}
+
+.featuresSection h2::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--purples--purple-800), var(--purples--purple-1000));
+  border-radius: 2px;
+}
+
+.featuresSection p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  line-height: 1.6;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.featureItem {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.featureItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border-color: var(--purples--purple-200);
+}
+
+.featureItem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--purples--purple-800), var(--purples--purple-1000));
+  border-radius: 0 2px 2px 0;
+}
+
+.featureItem strong {
+  color: var(--purples--purple-1000);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+  padding-left: 16px;
+}
+
+.featureItem p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+  padding-left: 16px;
+}
+
+/* Why Choose Us Section */
+.whyChooseUsSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  position: relative;
+  border-bottom: 1px solid #eee;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.whyChooseUsSection::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(var(--purples--purple-100-rgb, 245, 240, 255), 0.6);
+  border-radius: 50%;
+  bottom: -200px;
+  right: -200px;
+  z-index: 0;
+}
+
+.whyChooseUsSection h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.whyChooseUsSection h2::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--purples--purple-800), var(--purples--purple-1000));
+  border-radius: 2px;
+}
+
+.whyChooseUsSection p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  line-height: 1.6;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.whyChooseUsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.whyChooseUsItem {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.whyChooseUsItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.whyChooseUsIcon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--purples--purple-100), var(--purples--purple-200));
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: var(--purples--purple-1000);
+  font-size: 24px;
+}
+
+.whyChooseUsContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.whyChooseUsItem strong {
+  color: #333;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.whyChooseUsItem p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
 /* FAQ Section */
 .faqSection {
   max-width: 800px;
@@ -258,6 +487,40 @@ input:checked + .slider:before {
 }
 
 /* Responsive Styles */
+@media (min-width: 768px) {
+  .pricingPlans {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .featuresList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .whyChooseUsList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .featuresList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .whyChooseUsList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .pricingPlans {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricingPlan.popular {
+    grid-column: span 2;
+  }
+}
+
 @media (max-width: 768px) {
   .pricingPlans {
     grid-template-columns: 1fr;
@@ -265,10 +528,58 @@ input:checked + .slider:before {
 
   .pricingPlan.popular {
     transform: scale(1);
+    grid-column: auto;
   }
 
   .pricingPlan.popular:hover {
     transform: translateY(-5px);
+  }
+
+  .featuresSection h2,
+  .whyChooseUsSection h2 {
+    font-size: 2.2rem;
+  }
+
+  .featuresSection p,
+  .whyChooseUsSection p {
+    font-size: 1.1rem;
+  }
+
+  .featureItem strong,
+  .whyChooseUsItem strong {
+    font-size: 1.1rem;
+  }
+
+  .featureItem p,
+  .whyChooseUsItem p {
+    font-size: 0.95rem;
+  }
+
+  .whyChooseUsItem {
+    grid-template-columns: 50px 1fr;
+  }
+
+  .whyChooseUsIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .featuresSection,
+  .whyChooseUsSection {
+    padding: 3rem 1rem;
+  }
+
+  .featuresSection h2,
+  .whyChooseUsSection h2 {
+    font-size: 1.8rem;
+  }
+
+  .featureItem,
+  .whyChooseUsItem {
+    padding: 24px;
   }
 }
 
