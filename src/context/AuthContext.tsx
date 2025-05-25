@@ -18,7 +18,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   error: string | null;
-  login: (email: string, password: string, userType: UserType) => Promise<void>;
+  login: (email: string, password: string, userType: UserType) => Promise<boolean>;
   logout: () => Promise<void>;
   clearError: () => void;
 }
@@ -49,30 +49,39 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   // Login function
-  const login = async (email: string, password: string, userType: UserType) => {
+  const login = async (email: string, password: string, userType: UserType): Promise<boolean> => {
     setIsLoading(true);
     setError(null);
-    
+
     try {
       const response = await loginService(email, password, userType);
-      
+
       if (response.success && response.user) {
+        // Add debugging
+        console.log('Login response user:', response.user);
+        console.log('User type from API:', response.user.type);
+
         const userData: User = {
           id: response.user.id,
           username: response.user.username,
           email: response.user.email,
           type: response.user.type as UserType
         };
-        
+
+        console.log('User data after casting:', userData);
+
         setUser(userData);
         setIsAuthenticated(true);
         localStorage.setItem('user', JSON.stringify(userData));
+        return true;
       } else {
         setError(response.message || 'Login failed');
+        return false;
       }
     } catch (err) {
       setError('An error occurred during login. Please try again.');
       console.error('Login error:', err);
+      return false;
     } finally {
       setIsLoading(false);
     }
@@ -81,7 +90,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Logout function
   const logout = async () => {
     setIsLoading(true);
-    
+
     try {
       await logoutService();
       setUser(null);

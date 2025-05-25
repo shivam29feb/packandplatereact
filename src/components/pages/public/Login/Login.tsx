@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './Login.module.css';
-import { useAuth, UserType } from '../../../../context/AuthContext';
+import { useAuth } from '../../../../context/AuthContext';
 import LoginForm from '../../../organisms/LoginForm/LoginForm';
 import PublicNavigation from '../../../molecules/PublicNavigation/PublicNavigation';
-import Typography from '../../../atoms/Typography/Typography';
+import NewsletterSubscription from '../../../molecules/NewsletterSubscription/NewsletterSubscription';
+import Footer from '../../../organisms/Footer/Footer';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -14,48 +15,56 @@ const Login: React.FC = () => {
   // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated && user) {
-      const dashboardRoutes: Record<UserType, string> = {
-        'admin': '/admin/dashboard',
-        'system-admin': '/admin/dashboard',
-        'member': '/member/dashboard',
-        'customer': '/customer/dashboard'
-      };
+      console.log('Login redirect - User:', user);
 
-      // Redirect to the appropriate dashboard
-      const from = location.state?.from?.pathname || dashboardRoutes[user.type];
-      navigate(from, { replace: true });
+      // Force redirect based on user type (case-insensitive)
+      let dashboardPath = '/';
+
+      if (user.type.toLowerCase() === 'admin' || user.type.toLowerCase() === 'system-admin') {
+        dashboardPath = '/admin/dashboard';
+      } else if (user.type.toLowerCase() === 'member') {
+        dashboardPath = '/member/dashboard';
+      } else if (user.type.toLowerCase() === 'customer') {
+        dashboardPath = '/customer/dashboard';
+      }
+
+      console.log('Redirecting to:', dashboardPath);
+
+      // Force the correct dashboard path based on user type
+      navigate(dashboardPath, { replace: true });
     }
   }, [isAuthenticated, user, navigate, location]);
 
   const handleLoginSuccess = () => {
-    // Additional success handling if needed
+    // Only called when login is actually successful
     console.log('Login successful');
   };
 
   const handleLoginError = (error: string) => {
-    // Additional error handling if needed
-    console.error('Login error:', error);
+    // Called when login fails
+    console.error('Login failed:', error);
   };
 
   return (
-    <div className={styles.pageContainer}>
+    <div>
       <PublicNavigation />
-
       <div className={styles.loginContainer}>
-        <div className={styles.loginHeader}>
-          <Typography variant="h3" align="center" gutterBottom>
-            Welcome Back
-          </Typography>
-          <Typography variant="body1" align="center" color="secondary">
-            Sign in to continue to your account
-          </Typography>
-        </div>
+        <div className={styles.loginFormContainer}>
+          <h3 className={styles.title}>Welcome Back</h3>
+          <p>Sign in to continue to your account</p>
 
-        <LoginForm
-          onSuccess={handleLoginSuccess}
-          onError={handleLoginError}
-        />
+          <LoginForm
+            onSuccess={handleLoginSuccess}
+            onError={handleLoginError}
+          />
+
+        </div>
+        <div className={styles.imgContainer}>
+          <img src={require('../../../../assets/images/signup-background.jpg')} alt="Login background" />
+        </div>
       </div>
+      <NewsletterSubscription />
+      <Footer />
     </div>
   );
 };

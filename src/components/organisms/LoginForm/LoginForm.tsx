@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
 import styles from './LoginForm.module.css';
-import Form from '../../molecules/Form/Form';
-import FormField from '../../molecules/FormField/FormField';
-import Input from '../../atoms/Input/Input';
-import Select from '../../atoms/Select/Select';
-import Typography from '../../atoms/Typography/Typography';
 import { UserType, useAuth } from '../../../context/AuthContext';
 
 interface LoginFormProps {
@@ -38,6 +33,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
     email: '',
     password: ''
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -96,11 +93,16 @@ const LoginForm: React.FC<LoginFormProps> = ({
     }
 
     try {
-      await login(formData.email, formData.password, formData.userType);
-      
-      // If no error was thrown, the login was successful
-      // The AuthContext will handle setting the user and authentication state
-      onSuccess?.();
+      // login now returns a boolean indicating success
+      const success = await login(formData.email, formData.password, formData.userType);
+
+      if (success) {
+        // If login was successful
+        onSuccess?.();
+      } else if (error) {
+        // If there's an error from the context
+        onError?.(error);
+      }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'An error occurred';
       onError?.(errorMessage);
@@ -115,75 +117,78 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
   return (
     <div className={styles.loginForm}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Login to Your Account
-      </Typography>
-
-      <Typography variant="body2" align="center" color="secondary" gutterBottom>
-        Enter your credentials to access your account
-      </Typography>
-
       {error && (
         <div className={styles.errorMessage}>
-          <Typography variant="body2" color="error">
-            {error}
-          </Typography>
+          <p>{error}</p>
         </div>
       )}
 
-      <Form
-        onSubmit={handleSubmit}
-        submitText="Login"
-        isSubmitting={isLoading}
-        fullWidth
-      >
-        <FormField
-          label="Email"
-          required
-          error={formErrors.email}
-        >
-          <Input
+      <form onSubmit={handleSubmit}>
+        <div className={styles.formGroup}>
+          <label htmlFor="email">Email</label>
+          <input
             type="email"
+            id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="Enter your email"
-            fullWidth
+            required
+            className={`${styles.input} ${formErrors.email ? styles.inputError : ''}`}
             disabled={isLoading}
-            status={formErrors.email ? 'error' : 'default'}
           />
-        </FormField>
+          {formErrors.email && <p className={styles.fieldError}>{formErrors.email}</p>}
+        </div>
 
-        <FormField
-          label="Password"
-          required
-          error={formErrors.password}
-        >
-          <Input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Enter your password"
-            fullWidth
-            disabled={isLoading}
-            status={formErrors.password ? 'error' : 'default'}
-          />
-        </FormField>
+        <div className={styles.formGroup}>
+          <label htmlFor="password">Password</label>
+          <div className={styles.passwordInputContainer}>
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Enter your password"
+              required
+              className={`${styles.input} ${formErrors.password ? styles.inputError : ''}`}
+              disabled={isLoading}
+            />
+            <i
+              className={`${showPassword ? "fas fa-eye-slash" : "fas fa-eye"} ${styles.passwordToggle}`}
+              onClick={() => setShowPassword(!showPassword)}
+            ></i>
+          </div>
+          {formErrors.password && <p className={styles.fieldError}>{formErrors.password}</p>}
+        </div>
 
-        <FormField
-          label="Login As"
-        >
-          <Select
+        <div className={styles.formGroup}>
+          <label htmlFor="userType">Login As</label>
+          <select
+            id="userType"
             name="userType"
             value={formData.userType}
             onChange={handleChange}
-            options={userTypeOptions}
-            fullWidth
+            className={styles.input}
             disabled={isLoading}
-          />
-        </FormField>
-      </Form>
+          >
+            {userTypeOptions.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className={styles.signupContainer}>
+          <span>Don't have an account?</span>
+          <a href="/signup"><span>Sign Up</span></a>
+        </div>
+
+        <button type="submit" className={styles.button} disabled={isLoading}>
+          {isLoading ? 'Logging in...' : 'Login'}
+        </button>
+      </form>
     </div>
   );
 };

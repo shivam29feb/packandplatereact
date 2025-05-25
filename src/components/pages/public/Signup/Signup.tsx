@@ -72,6 +72,8 @@ const Signup: React.FC = () => {
         plan: planFromUrl || 'epic' // Default to Epic plan if none selected
     });
     const [message, setMessage] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     // Format price with Indian Rupee symbol
     const formatPrice = (price: number): string => {
@@ -241,27 +243,39 @@ const Signup: React.FC = () => {
                         <div className={styles.formGroupContainer}>
                             <div className={styles.formGroup}>
                                 <label htmlFor="password">Password</label>
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                    required
-                                    className={styles.input}
-                                />
+                                <div className={styles.passwordInputContainer}>
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        id="password"
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        required
+                                        className={styles.input}
+                                    />
+                                    <i
+                                        className={`${showPassword ? "fas fa-eye-slash" : "fas fa-eye"} ${styles.passwordToggle}`}
+                                        onClick={() => setShowPassword(!showPassword)}
+                                    ></i>
+                                </div>
                             </div>
                             <div className={styles.formGroup}>
                                 <label htmlFor="confirmPassword">Confirm Password</label>
-                                <input
-                                    type="password"
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    value={formData.confirmPassword}
-                                    onChange={handleChange}
-                                    required
-                                    className={styles.input}
-                                />
+                                <div className={styles.passwordInputContainer}>
+                                    <input
+                                        type={showConfirmPassword ? "text" : "password"}
+                                        id="confirmPassword"
+                                        name="confirmPassword"
+                                        value={formData.confirmPassword}
+                                        onChange={handleChange}
+                                        required
+                                        className={styles.input}
+                                    />
+                                    <i
+                                        className={`${showConfirmPassword ? "fas fa-eye-slash" : "fas fa-eye"} ${styles.passwordToggle}`}
+                                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                    ></i>
+                                </div>
                             </div>
                         </div>
                         <div className={styles.loginContainer}>
