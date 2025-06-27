@@ -1,0 +1,267 @@
+# Pack and Plate - Project Presentation
+
+## Slide 1: Title Slide
+**Project Name:** Pack and Plate  
+**Subtitle:** A Modern Web-Based Food Subscription Platform  
+**Presented by:** Nisha N. Gondhale  
+**Under Guidance:** Prof. Sonali Vidhate  
+**Department:** MCA, MET Institute of Engineering, Nashik
+
+## Slide 2: Abstract
+Pack and Plate is a cutting-edge web platform designed to transform food subscription management. It connects home chefs, mess providers, and customers through a responsive, user-friendly interface.
+
+**Key Features:**
+- Customizable meal plans
+- Real-time order tracking
+- Subscription and order management
+- Admin and user dashboards
+- Responsive design for all devices
+
+**Technologies:** React 19, TypeScript, React Router, Axios, Context API
+
+## Slide 3: Problem with Existing Systems
+**Current Challenges:**
+- Limited integration for small food providers
+- Inflexible subscription models
+- Poor mobile experience
+- Lack of real-time updates
+- Complex order management
+
+## Slide 4: Need for the System
+**Market Demand:**
+- Growing preference for home-cooked meals
+- Need for digital solutions in food service
+- Demand for flexible subscription models
+- Real-time order tracking expectations
+- Contactless payment requirements
+
+## Slide 5: Scope of the System
+**Core Modules:**
+1. **User Management**
+   - Role-based access (Admin, Provider, Customer)
+   - Profile management
+   - Authentication & Authorization
+
+2. **Menu Management**
+   - Dish CRUD operations
+   - Category management
+   - Pricing control
+
+3. **Subscription Management**
+   - Flexible meal plans
+   - Pause/resume functionality
+   - Auto-renewal options
+
+4. **Order Processing**
+   - Real-time status updates
+   - Order history
+   - Delivery tracking
+
+5. **Payment Integration**
+   - Secure transactions
+   - Multiple payment methods
+   - Invoicing
+
+6. **Analytics Dashboard**
+   - Sales reports
+   - User activity
+   - Popular items
+
+## Slide 6: Operating Environment
+**Development Stack:**
+- **Frontend:** React 19, TypeScript
+- **State Management:** Context API
+- **Routing:** React Router v6
+- **HTTP Client:** Axios
+- **Styling:** CSS Modules
+
+**Browser Support:**
+- Chrome (latest 2 versions)
+- Firefox (latest 2 versions)
+- Safari (latest 2 versions)
+- Edge (latest 2 versions)
+
+## Slide 7: Technologies Used
+**Frontend:**
+- React 19 with TypeScript
+- React Context API for state management
+- React Router for navigation
+- Axios for API communication
+- CSS Modules for styling
+- Font Awesome for icons
+- Normalize.css for consistent styling
+
+## Slide 8: System Architecture & Features
+**Architecture Highlights:**
+- Single Page Application (SPA)
+- Component-based architecture
+- RESTful API integration
+- JWT Authentication
+- Responsive Web Design
+- Modular code structure
+
+## Slide 9: Objectives
+**Key Goals:**
+1. Simplify food subscription management
+2. Provide intuitive user experience
+3. Ensure system scalability
+4. Implement robust security measures
+5. Deliver high performance
+6. Maintain code quality and maintainability
+
+## Slide 10: User Requirements
+**Functional Requirements:**
+- User registration and authentication
+- Menu browsing and search
+- Subscription management
+- Order placement and tracking
+- Payment processing
+- Profile management
+
+**Non-Functional Requirements:**
+- Page load time < 3s
+- Support for 100+ concurrent users
+- 99.9% uptime
+- Secure data transmission (HTTPS)
+- Responsive design (mobile-first)
+
+## Slide 11: Feasibility Study
+**Technical Feasibility:**
+- Built with modern, well-supported technologies
+- Modular architecture allows for easy updates
+- Scalable cloud deployment options
+
+**Economic Feasibility:**
+- Open-source technologies reduce costs
+- Cloud hosting options available for all budgets
+- Low maintenance overhead
+
+**Operational Feasibility:**
+- Intuitive interface reduces training needs
+- Comprehensive documentation available
+- Easy to maintain and update
+
+## Slide 12: System Design
+**Key Diagrams:**
+1. **Component Architecture**
+   - Shows system modules and their interactions
+   - Illustrates data flow between components
+
+2. **Database Schema**
+   - User management tables
+   - Menu and order management
+   - Subscription handling
+   - Payment processing
+
+3. **User Flow**
+   - Registration process
+   - Order placement
+   - Subscription management
+
+## Slide 13: Database Design
+**Core Tables:**
+1. **Users**
+   - User profiles
+   - Authentication data
+   - Preferences
+
+2. **Dishes**
+   - Menu items
+   - Categories
+   - Pricing
+
+3. **Orders**
+   - Order details
+   - Status tracking
+   - Payment information
+
+4. **Subscriptions**
+   - Plan details
+   - Billing cycle
+   - Status
+
+## Slide 14: Testing Strategy
+**Testing Approach:**
+1. **Unit Testing**
+   - Component testing
+   - Service layer testing
+
+2. **Integration Testing**
+   - API integration
+   - Component interactions
+
+3. **UI/UX Testing**
+   - Cross-browser testing
+   - Responsive design validation
+   - User flow testing
+
+## Slide 15: Implementation Status
+**Completed Features:**
+- User authentication
+- Menu management
+- Basic order processing
+- Subscription handling
+- Admin dashboard
+
+## Slide 16: User Manual
+**Admin Guide:**
+1. Access admin dashboard
+2. Manage users and roles
+3. Update menu items
+4. View reports
+5. Manage subscriptions
+
+**User Guide:**
+1. Create an account
+2. Browse menu
+3. Subscribe to plans
+4. Place orders
+5. Track deliveries
+
+## Slide 17: Current Limitations
+**Known Issues:**
+- Web-only (no native mobile app)
+- Basic analytics
+- Limited payment gateways
+- No offline support
+- Basic search functionality
+
+## Slide 18: Future Enhancements
+**Planned Features:**
+1. Progressive Web App (PWA) support
+2. Advanced analytics dashboard
+3. Expanded payment options
+4. Real-time notifications
+5. Enhanced search with filters
+6. Multi-language support
+7. Loyalty program
+
+## Slide 19: Technical Roadmap
+**Short-term (0-3 months):**
+- Performance optimization
+- Additional test coverage
+- UI/UX improvements
+
+**Mid-term (3-6 months):**
+- PWA implementation
+- Advanced analytics
+- Payment gateway expansion
+
+**Long-term (6+ months):**
+- Mobile app development
+- AI-based recommendations
+- Third-party integrations
+
+## Slide 20: Conclusion
+Pack and Plate represents a modern approach to food subscription services, combining robust technology with user-centric design. The platform is built to scale and adapt to future needs while maintaining high performance and security standards.
+
+**Key Achievements:**
+- Delivered a fully functional MVP
+- Implemented core features as per requirements
+- Established a solid foundation for future growth
+
+**Next Steps:**
+- Gather user feedback
+- Implement feature enhancements
+- Expand platform capabilities
+- Improve performance and scalability

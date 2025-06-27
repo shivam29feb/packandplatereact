@@ -1,6 +1,20 @@
 import axios from 'axios';
 import { API_BASE_URL } from '../config/apiConfig';
 
+// Type guard to check if error is an Axios error
+const isAxiosError = (error: unknown): error is { 
+  isAxiosError: boolean; 
+  response?: {
+    status?: number;
+    statusText?: string;
+    data?: any;
+  };
+  request?: any;
+  message: string;
+} => {
+  return typeof error === 'object' && error !== null && 'isAxiosError' in error;
+};
+
 export interface LoginResponse {
   success: boolean;
   message: string;
@@ -24,66 +38,105 @@ interface LogoutResponse {
   message: string;
 }
 
-export const login = async (email: string, password: string, userType: string = 'member'): Promise<LoginResponse> => {
+type UserType = 'admin' | 'system-admin' | 'member' | 'customer';
+
+export const login = async (email: string, password: string, userType: UserType = 'member'): Promise<LoginResponse> => {
+  // Clear any existing auth data before login
+  localStorage.removeItem('user');
+  localStorage.removeItem('isAuthenticated');
+  sessionStorage.clear();
+
+  const formData = new FormData();
+  formData.append('email', email);
+  formData.append('password', password);
+  formData.append('userType', userType);
+
+  const url = `${API_BASE_URL}/src/config/auth/login.php`;
+
+  console.log('=== Login Request ===');
+  console.log('URL:', url);
+  console.log('Email:', email, 'UserType:', userType);
+
   try {
-    const data: LoginData = {
-      email,
-      password,
-      userType
-    };
-
-    const url = `${API_BASE_URL}/auth/login.php`;
-
-    // Log complete request details
-    console.log('=== Login Request Details ===');
-    console.log('URL:', url);
-    console.log('Data being sent:', data);
-    console.log('API_BASE_URL:', API_BASE_URL);
-
     const response = await axios.post<LoginResponse>(
       url,
-      data,
+      formData,
       {
+        withCredentials: true,
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
+          'Accept': 'application/json',
+          'Content-Type': 'multipart/form-data'
+        },
+        timeout: 10000
       }
     );
 
-    // Log complete response
-    console.log('=== Login Response Details ===');
+    console.log('=== Login Response ===');
     console.log('Status:', response.status);
-    console.log('Headers:', response.headers);
     console.log('Data:', response.data);
-
+    
     if (!response.data) {
-      throw new Error('No response data received');
+      console.error('No response data received');
+      return {
+        success: false,
+        message: 'No response data received from server'
+      } as LoginResponse;
     }
-
-    return response.data;
-  } catch (error) {
-    // Enhanced error logging
-    console.error('=== Login Error Details ===');
-    let errorMessage = 'Error logging in';
-
-    if (error && typeof error === 'object' && 'response' in error) {
-      const axiosError = error as {
-        response?: {
-          status?: number;
-          data?: any;
-        };
-        message?: string;
+    
+    if (response.status >= 400) {
+      const errorMessage = response.data?.message || `HTTP error! status: ${response.status}`;
+      console.error('Login failed:', errorMessage);
+      return {
+        success: false,
+        message: errorMessage
       };
-
-      console.error('Response Status:', axiosError.response?.status);
-      console.error('Response Data:', axiosError.response?.data);
-      errorMessage = axiosError.response?.data?.message || axiosError.message || errorMessage;
-    } else if (error instanceof Error) {
-      console.error('Error Message:', error.message);
-      errorMessage = error.message;
     }
-
+    
+    if (!response.data) {
+      const errorMessage = 'No response data received';
+      console.error(errorMessage);
+      return {
+        success: false,
+        message: errorMessage
+      };
+    }
+    
+    return response.data;
+  } catch (error: unknown) {
+    console.error('=== Login Error ===');
+    
+    if (isAxiosError(error)) {      
+      if (error.response) {
+        // Server responded with error status
+        console.error('Response error:', {
+          status: error.response.status,
+          statusText: error.response.statusText,
+          data: error.response.data
+        });
+        
+        return {
+          success: false,
+          message: error.response.data?.message || 
+                 `HTTP error! status: ${error.response.status}`
+        };
+      } 
+      
+      if (error.request) {
+        // No response received
+        console.error('No response received:', error.request);
+        return {
+          success: false,
+          message: 'No response from the server. Please check your connection.'
+        };
+      }
+    }
+    
+    // Handle non-Axios errors
+    const errorMessage = error instanceof Error 
+      ? error.message 
+      : 'An unknown error occurred';
+      
+    console.error('Login error:', errorMessage);
     return {
       success: false,
       message: errorMessage
@@ -96,50 +149,101 @@ export const login = async (email: string, password: string, userType: string = 
  * @returns A promise that resolves to the logout response
  */
 export const logout = async (): Promise<LogoutResponse> => {
+  const url = `${API_BASE_URL}/src/config/auth/logout.php`;
+  
+  console.log('=== Logout Request ===');
+  console.log('URL:', url);
+  
   try {
-    const url = `${API_BASE_URL}/auth/logout.php`;
+    // Clear all auth-related data from localStorage and sessionStorage
+    localStorage.removeItem('user');
+    localStorage.removeItem('isAuthenticated');
+    sessionStorage.clear();
 
-    console.log('=== Logout Request Details ===');
-    console.log('URL:', url);
+    // Clear all cookies by setting them to expire in the past
+    document.cookie.split(';').forEach(cookie => {
+      const [name] = cookie.trim().split('=');
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
+    });
 
+    // Make the logout request
     const response = await axios.post<LogoutResponse>(
       url,
       {},
       {
+        withCredentials: true,
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         },
-        withCredentials: true // Important for sending cookies with the request
+        validateStatus: () => true
       }
     );
 
-    console.log('=== Logout Response Details ===');
+    console.log('=== Logout Response ===');
     console.log('Status:', response.status);
     console.log('Data:', response.data);
 
-    return response.data;
-  } catch (error) {
-    console.error('=== Logout Error Details ===');
-    let errorMessage = 'Error logging out';
+    // Clear any remaining auth data
+    localStorage.removeItem('user');
+    localStorage.removeItem('isAuthenticated');
+    sessionStorage.clear();
 
-    if (error && typeof error === 'object' && 'response' in error) {
-      const axiosError = error as {
-        response?: {
-          status?: number;
-          data?: any;
-        };
-        message?: string;
+    if (response.status >= 400) {
+      const errorMessage = response.data?.message || `HTTP error! status: ${response.status}`;
+      console.error('Logout failed:', errorMessage);
+      return {
+        success: false,
+        message: errorMessage
       };
-
-      console.error('Response Status:', axiosError.response?.status);
-      console.error('Response Data:', axiosError.response?.data);
-      errorMessage = axiosError.response?.data?.message || axiosError.message || errorMessage;
-    } else if (error instanceof Error) {
-      console.error('Error Message:', error.message);
-      errorMessage = error.message;
     }
 
+    if (!response.data) {
+      const errorMessage = 'No response data received';
+      console.error(errorMessage);
+      return {
+        success: false,
+        message: errorMessage
+      };
+    }
+
+    // Force a hard refresh to clear any remaining state
+    window.location.href = '/';
+    window.location.reload();
+
+    return response.data;
+  } catch (error: unknown) {
+    console.error('=== Logout Error ===');
+    
+    if (isAxiosError(error)) {      
+      if (error.response) {
+        console.error('Response error:', {
+          status: error.response.status,
+          statusText: error.response.statusText,
+          data: error.response.data
+        });
+
+        return {
+          success: false,
+          message: error.response.data?.message || 
+                 `HTTP error! status: ${error.response.status}`
+        };
+      }
+      
+      if (error.request) {
+        console.error('No response received:', error.request);
+        return {
+          success: false,
+          message: 'No response from the server. Please check your connection.'
+        };
+      }
+    }
+    
+    const errorMessage = error instanceof Error 
+      ? error.message 
+      : 'An unknown error occurred during logout';
+      
+    console.error('Logout error:', errorMessage);
     return {
       success: false,
       message: errorMessage

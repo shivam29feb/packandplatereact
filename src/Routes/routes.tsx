@@ -8,12 +8,12 @@ import ViewDish from '../components/pages/member-only/member/Dishes/ViewDish/Vie
 import Signup from '../components/pages/public/Signup/Signup';
 import Login from '../components/pages/public/Login/Login';
 import AdminLogin from '../components/pages/public/AdminLogin/AdminLogin';
-import AdminSignup from '../components/pages/public/AdminSignup/AdminSignup';
 import MemberDashboard from '../components/pages/member-only/member/MemberDashboard/MemberDashboard';
 import MemberProfile from '../components/pages/member-only/member/MemberProfile/MemberProfile';
 import MemberSettings from '../components/pages/member-only/member/MemberSettings/MemberSettings';
 // Admin components
 import AdminDashboard from '../components/pages/member-only/admin/AdminDashboard/AdminDashboard';
+import UserManagement from '../components/pages/member-only/admin/UserManagement/UserManagement';
 import CustomerDashboard from '../components/pages/member-only/customer/CustomerDashboard/CustomerDashboard';
 import Menu from '../components/pages/member-only/customer/Menu/Menu';
 import Orders from '../components/pages/member-only/customer/Orders/Orders';
@@ -50,7 +50,6 @@ const AppRoutes: React.FC = () => {
 
 
       <Route path="/admin-login" element={<AdminLogin />} />
-      <Route path="/admin-signup" element={<AdminSignup />} />
 
       {/* Error routes */}
       <Route path="/unauthorized" element={<Unauthorized />} />
@@ -84,8 +83,19 @@ const AppRoutes: React.FC = () => {
 
       {/* System Admin routes */}
       <Route path="/admin/dashboard" element={
-        <ProtectedRoute allowedRoles={(['admin', 'system-admin'] as UserType[])}>
+        <ProtectedRoute 
+          allowedRoles={['admin', 'system-admin'] as UserType[]}
+          redirectPath="/admin-login"
+        >
           <AdminDashboard />
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/users" element={
+        <ProtectedRoute 
+          allowedRoles={['admin', 'system-admin'] as UserType[]}
+          redirectPath="/admin-login"
+        >
+          <UserManagement />
         </ProtectedRoute>
       } />
 

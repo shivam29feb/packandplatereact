@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
+  position: relative;
 }
 
 .inputContainer {
@@ -34,6 +35,16 @@
 }
 
 /* Input Sizes */
+.size-compact .input {
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  height: 28px;
+}
+
+.size-compact .label {
+  font-size: 0.6875rem;
+}
+
 .size-small .input {
   padding: 6px 12px;
   font-size: 0.875rem;
@@ -58,6 +69,20 @@
 
 .size-large .label {
   font-size: 1rem;
+}
+
+/* Unstyled Variant */
+.variant-unstyled .input {
+  border: none;
+  background: transparent;
+  padding: 0;
+  height: auto;
+  border-radius: 0;
+}
+
+.variant-unstyled .input:focus {
+  box-shadow: none;
+  outline: none;
 }
 
 /* Input Variants */
@@ -133,6 +158,104 @@
 
 .status-warning .helperText {
   color: #f57c00;
+}
+
+/* Password Toggle Button */
+.toggleButton {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--blacks--black-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+  background-color: var(--blacks--black-100);
+  color: var(--blacks--black-800);
+}
+
+.toggleButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--purples--purple-200);
+}
+
+.eyeIcon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* Adjust padding when toggle button is present */
+:global(.input[type="password"]) {
+  padding-right: 40px !important;
+}
+
+/* Loading State */
+.loading .input {
+  padding-right: 36px;
+}
+
+.loadingIndicator {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  animation: rotate 1.4s linear infinite;
+}
+
+.spinnerPath {
+  stroke: var(--blacks--black-600);
+  stroke-linecap: round;
+  animation: dash 1.4s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* Focus State */
+.focused .input {
+  border-color: var(--purples--purple-800);
+  box-shadow: 0 0 0 2px rgba(103, 58, 183, 0.1);
 }
 
 /* Disabled State */

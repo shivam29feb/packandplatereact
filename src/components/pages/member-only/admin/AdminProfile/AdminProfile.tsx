@@ -1,12 +1,28 @@
 import React from 'react';
-import './AdminProfile.module.css';
+import styles from './AdminProfile.module.css';
+import DashboardLayout from '../../../../templates/DashboardLayout/DashboardLayout';
+import DashboardSidebar from '../../../../organisms/DashboardSidebar/DashboardSidebar';
 
 const AdminProfile: React.FC = () => {
+  // Navigation items for admin sidebar
+  const navItems = [
+    { label: 'Dashboard', path: '/admin/dashboard' },
+    { label: 'User Management', path: '/admin/users' },
+    { label: 'Dish Approval', path: '/admin/dishes' },
+    { label: 'Reports', path: '/admin/reports' },
+    { label: 'Settings', path: '/admin/settings' },
+  ];
+
   return (
-    <div>
-      <h1>Admin Profile</h1>
-      <p>This component has been deprecated and will be replaced with the System Admin dashboard.</p>
-    </div>
+    <DashboardLayout
+      title="Admin Profile"
+      sidebarContent={<DashboardSidebar navItems={navItems} />}
+    >
+      <div className={styles['admin-profile']}>
+        <h1>Admin Profile</h1>
+        <p>Manage your admin profile settings here.</p>
+      </div>
+    </DashboardLayout>
   );
 };
 

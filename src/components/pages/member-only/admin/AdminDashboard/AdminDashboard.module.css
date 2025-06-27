@@ -1,4 +1,4 @@
-﻿.admin-dashboard {
+.admin-dashboard {
   padding: 20px;
 }
 
@@ -17,8 +17,200 @@
   margin-bottom: 0;
 }
 
+.dashboardContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 16px;
+  width: 100%;
+}
+
+.welcomeSection {
+  margin-bottom: 16px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  height: 100%;
+}
+
+.statValueContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.tableCard {
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.quickActions {
+  margin-top: 16px;
+}
+
+.actionButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.actionLink {
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+
+.actionLink button {
+  width: 100%;
+}
+
+/* Quick Actions */
+.quickActionsCard {
+  margin-bottom: 24px;
+}
+
+.quickActionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.quickAction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  min-height: 120px;
+}
+
+.quickAction:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e0;
+}
+
+.quickActionIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7fafc;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  color: #4a5568;
+}
+
+.quickAction svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Tablet styles (min-width: 576px) */
+@media (min-width: 576px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .actionButtons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .quickActionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small desktop (min-width: 768px) */
 @media (min-width: 768px) {
+  .dashboardContent {
+    padding: 24px;
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .actionButtons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .quickActionsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
   .admin-dashboard {
     padding: 0;
+  }
+}
+
+/* Desktop (min-width: 992px) */
+@media (min-width: 992px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .actionButtons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large desktop (min-width: 1200px) */
+@media (min-width: 1200px) {
+  .dashboardContent {
+    padding: 32px;
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .actionButtons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Extra large screens (min-width: 1400px) */
+@media (min-width: 1400px) {
+  .dashboardContent {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* 2K and 4K screens (min-width: 1920px) */
+@media (min-width: 1920px) {
+  .dashboardContent {
+    max-width: 1800px;
+    padding: 48px;
+  }
+  
+  .statsGrid {
+    gap: 24px;
+  }
+  
+  .tableCard {
+    margin-bottom: 32px;
+  }
+
+  .viewButton {
+    margin-left: auto;
+    padding: 4px 8px;
+    min-width: 0;
   }
 }

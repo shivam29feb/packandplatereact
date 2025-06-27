@@ -1,12 +1,28 @@
 import React from 'react';
-import './Reports.module.css';
+import styles from './Reports.module.css';
+import DashboardLayout from '../../../../templates/DashboardLayout/DashboardLayout';
+import DashboardSidebar from '../../../../organisms/DashboardSidebar/DashboardSidebar';
 
 const Reports: React.FC = () => {
+  // Navigation items for admin sidebar
+  const navItems = [
+    { label: 'Dashboard', path: '/admin/dashboard' },
+    { label: 'User Management', path: '/admin/users' },
+    { label: 'Dish Approval', path: '/admin/dishes' },
+    { label: 'Reports', path: '/admin/reports' },
+    { label: 'Settings', path: '/admin/settings' },
+  ];
+
   return (
-    <div>
-      <h1>Reports</h1>
-      <p>This component has been deprecated and will be replaced with the System Admin dashboard.</p>
-    </div>
+    <DashboardLayout
+      title="Reports"
+      sidebarContent={<DashboardSidebar navItems={navItems} />}
+    >
+      <div className={styles['reports']}>
+        <h1>Reports</h1>
+        <p>View and generate system reports.</p>
+      </div>
+    </DashboardLayout>
   );
 };
 

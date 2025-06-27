@@ -1,39 +1,50 @@
 <?php
-$allowed_origins = array(
-    "http://localhost:3000",
-    "http://packandplate29febreact.rf.gd"
-);
-
-$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
-
-if (in_array($origin, $allowed_origins)) {
-    header("Access-Control-Allow-Origin: " . $origin);
+// Handle CORS preflight
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header('Access-Control-Allow-Origin: http://localhost:3000');
+    header('Access-Control-Allow-Methods: POST, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, X-Requested-With');
+    header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Max-Age: 86400');
+    http_response_code(200);
+    exit(0);
 }
 
-header("Access-Control-Allow-Methods: POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Access-Control-Allow-Credentials: true");
-header('Content-Type: application/json');
+// Handle session initialization
+if (session_status() === PHP_SESSION_ACTIVE) {
+    session_unset();
+    session_destroy();
+}
+session_start();
+session_regenerate_id(true);
+
+// Set CORS headers for actual request
+header('Access-Control-Allow-Origin: http://localhost:3000');
+header('Access-Control-Allow-Credentials: true');
+header('Content-Type: application/json; charset=utf-8');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit(0);
+}
 
 // Include database connection
 require_once __DIR__ . '/../connection.php';
 
-// Start session
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+// Get form data
+$email = $_POST['email'] ?? '';
+$password = $_POST['password'] ?? '';
+$userType = $_POST['userType'] ?? 'member';
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit(0);
-}
+// Log the received data
+error_log('Login attempt - Email: ' . $email . ', UserType: ' . $userType);
 
-// Decode JSON input
-$raw_input = file_get_contents("php://input");
-$data = json_decode($raw_input, true);
-
-$email = $data['email'] ?? '';
-$password = $data['password'] ?? '';
-$userType = $data['userType'] ?? 'member';
+// Log the extracted values
+error_log("Email: $email, UserType: $userType");
 
 // Validate input
 if (empty($email) || empty($password)) {
@@ -42,16 +53,23 @@ if (empty($email) || empty($password)) {
 }
 
 try {
-    // Check if user exists
-    if ($userType === 'admin') {
-        // For admin login, check for system-admin user type
-        $stmt = $pdo->prepare("SELECT user_id, user_username, user_email, user_password_hash, 'admin' as user_type FROM users WHERE user_email = ? AND user_type = 'system-admin'");
-        $stmt->execute([$email]);
+    // Check if user exists with the given email and matching user type
+    $query = "SELECT user_id, user_username, user_email, user_password_hash, user_type 
+              FROM users 
+              WHERE user_email = ?";
+    $params = [$email];
+    
+    // Only filter by user_type if it's not empty and not 'customer' (since customer is stored as 'customer' in DB)
+    if (!empty($userType) && $userType !== 'customer') {
+        $query .= " AND user_type = ?";
+        $params[] = $userType === 'admin' ? 'system-admin' : $userType;
     } else {
-        // Check in users table for members and customers
-        $stmt = $pdo->prepare("SELECT user_id, user_username, user_email, user_password_hash, user_type FROM users WHERE user_email = ? AND user_type = ?");
-        $stmt->execute([$email, $userType]);
+        // For customer login, check if user exists with customer type
+        $query .= " AND user_type = 'customer'";
     }
+    
+    $stmt = $pdo->prepare($query);
+    $stmt->execute($params);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 

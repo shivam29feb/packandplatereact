@@ -8,8 +8,14 @@ const MemberNavigation: React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await logout();
-    navigate('/');
+    try {
+      await logout();
+      navigate('/');
+    } catch (error) {
+      console.error('Logout error:', error);
+      // Still navigate to home even if there's an error
+      navigate('/');
+    }
   };
 
   // Get navigation links based on user role

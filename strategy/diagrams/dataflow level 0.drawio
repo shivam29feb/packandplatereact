@@ -1,0 +1,28 @@
+<mxfile host="65bd71144e">
+    <diagram id="GDYL35WLQhpohj4fD85E" name="Page-1">
+        <mxGraphModel dx="619" dy="408" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="70" width="560" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Customer" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="150" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Member" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="240" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Payment" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="240" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Admin" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="150" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="PackAndPlate System" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="150" width="150" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

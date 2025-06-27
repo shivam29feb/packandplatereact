@@ -1,0 +1,250 @@
+I'll generate a list of all columns from all 27 tables. Here's the complete list:
+
+1. users
+user_id (PK)
+user_username
+user_email
+user_password_hash
+user_type
+user_status
+user_verification_token
+user_token_expire
+user_last_login
+user_created_at
+2. member
+member_id (PK)
+user_id (FK to users)
+member_status
+member_type
+member_since
+member_updated_at
+3. member_profiles
+profile_id (PK)
+member_id (FK to member)
+full_name
+phone_number
+address
+profile_image
+bio
+created_at
+updated_at
+4. customer_profiles
+profile_id (PK)
+user_id (FK to users)
+full_name
+phone_number
+address
+dietary_preferences
+created_at
+updated_at
+5. dishes
+dish_id (PK)
+member_id (FK to member)
+category_id (FK to categories)
+dish_name
+mealTypes
+dish_description
+image_url
+dish_price
+status
+is_active
+created_at
+updated_at
+6. categories
+category_id (PK)
+name
+description
+image_url
+is_active
+created_at
+updated_at
+7. ingredients
+ingredient_id (PK)
+name
+description
+is_active
+created_at
+updated_at
+8. dish_ingredients
+dish_id (PK, FK to dishes)
+ingredient_id (PK, FK to ingredients)
+quantity
+created_at
+updated_at
+9. orders
+order_id (PK)
+user_id (FK to users)
+order_date
+total_amount
+status
+payment_status
+delivery_address
+created_at
+updated_at
+10. order_items
+order_item_id (PK)
+order_id (FK to orders)
+dish_id (FK to dishes)
+quantity
+price
+special_instructions
+created_at
+updated_at
+11. subscription_plans
+plan_id (PK)
+name
+description
+price
+duration_days
+is_active
+created_at
+updated_at
+12. subscriptions
+subscription_id (PK)
+user_id (FK to users)
+plan_id (FK to subscription_plans)
+start_date
+end_date
+status
+auto_renew
+created_at
+updated_at
+13. subscription_payments
+payment_id (PK)
+subscription_id (FK to subscriptions)
+amount
+payment_date
+payment_method
+status
+transaction_id
+created_at
+updated_at
+14. payment_transactions
+transaction_id (PK)
+user_id (FK to users)
+amount
+payment_method
+status
+payment_date
+order_id (FK to orders, nullable)
+subscription_id (FK to subscriptions, nullable)
+created_at
+updated_at
+15. reviews
+review_id (PK)
+dish_id (FK to dishes)
+user_id (FK to users)
+rating
+comment
+review_date
+status
+created_at
+updated_at
+16. favorites
+user_id (PK, FK to users)
+dish_id (PK, FK to dishes)
+created_at
+17. nutritional_info
+info_id (PK)
+dish_id (FK to dishes)
+calories
+protein
+carbs
+fat
+fiber
+created_at
+updated_at
+18. customer_attendance
+attendance_id (PK)
+customer_id (FK to users)
+member_id (FK to member)
+date
+meal_type
+status
+notes
+created_at
+updated_at
+19. customer_feedback
+feedback_id (PK)
+customer_id (FK to users)
+member_id (FK to member)
+rating
+feedback_type
+comment
+is_anonymous
+is_resolved
+resolved_by (FK to users)
+resolved_at
+resolution_comment
+created_at
+updated_at
+20. activity_logs
+log_id (PK)
+user_id (FK to users)
+action
+entity_type
+entity_id
+details
+ip_address
+user_agent
+created_at
+21. admins
+admin_id (PK)
+admin_username
+admin_email
+admin_password_hash
+admin_created_at
+22. memberships
+membership_id (PK)
+member_id (FK to member)
+membership_type
+start_date
+end_date
+status
+created_at
+updated_at
+23. notifications
+notification_id (PK)
+user_id (FK to users)
+title
+message
+is_read
+created_at
+updated_at
+24. system_settings
+setting_id (PK)
+setting_key
+setting_value
+description
+created_at
+updated_at
+25. user_addresses
+address_id (PK)
+user_id (FK to users)
+address_type
+address_line1
+address_line2
+city
+state
+postal_code
+country
+is_default
+created_at
+updated_at
+26. user_payment_methods
+payment_method_id (PK)
+user_id (FK to users)
+payment_type
+card_last_four
+card_brand
+expiry_date
+is_default
+created_at
+updated_at
+27. user_settings
+setting_id (PK)
+user_id (FK to users)
+setting_key
+setting_value
+created_at
+updated_at

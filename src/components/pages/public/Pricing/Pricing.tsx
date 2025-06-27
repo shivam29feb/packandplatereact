@@ -193,10 +193,6 @@ const Pricing: React.FC = () => {
         </div>
       </section>
 
-      <div className="cta-button">
-        <a href="/signup">Get Started Today</a>
-      </div>
-
       <NewsletterSubscription/>
       <Footer />
     </div>

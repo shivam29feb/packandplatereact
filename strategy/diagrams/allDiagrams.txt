@@ -1,0 +1,306 @@
+PackAndPlate - UML Diagrams
+1. Data Flow Diagram (DFD)
+Level 0 (Context Diagram)
+
++-------------+     +---------------+     +---------------+
+|             |     |               |     |               |
+|   Customer  |<--->| PackAndPlate  |<--->|   Member     |
+|             |     |   System      |     | (Food Provider)|
++-------------+     +-------+-------+     +---------------+
+         ^                   ^
+         |                   |
+         v                   v
++-------------+     +---------------+
+|   Payment   |     |    Admin     |
+|   Gateway   |     |               |
++-------------+     +---------------+
+
+Level 1 (Main Processes)
+Order Management
+Process Order
+Track Order
+Update Order Status
+User Management
+Register/Login
+Profile Management
+Access Control
+Menu Management
+Add/Edit Menu Items
+Manage Categories
+Update Pricing
+Payment Processing
+Process Payment
+Handle Refunds
+Generate Receipts
+2. Sequence Diagrams
+Customer Places Order
+
+Customer          App Server        Database       Member
+   |                  |                |              |
+   |  Browse Menu     |                |              |
+   |----------------->|                |              |
+   |                  |  Get Menu      |              |
+   |                  |--------------->|              |
+   |                  |  Menu Data     |              |
+   |                  |<---------------|              |
+   |  Display Menu    |                |              |
+   |<-----------------|                |              |
+   |  Select Items    |                |              |
+   |----------------->|                |              |
+   |                  |  Create Order  |              |
+   |                  |--------------->|              |
+   |                  |  Order Created |              |
+   |                  |<---------------|              |
+   |  Payment Screen  |                |              |
+   |<-----------------|                |              |
+   |  Make Payment    |                |              |
+   |----------------->|                |              |
+   |                  |  Process Payment              |
+   |                  |------------------------------->|
+   |                  |              |  Confirm Order |
+   |                  |              |<---------------|
+   | Order Confirmed  |                |              |
+   |<-----------------|                |              |
+
+   Class Diagram
+
+   classDiagram
+    class User {
+        +int user_id
+        +string username
+        +string email
+        +string password_hash
+        +string user_type
+        +string status
+        +register()
+        +login()
+        +updateProfile()
+    }
+
+    class Customer {
+        +int customer_id
+        +string[] addresses
+        +string[] payment_methods
+        +placeOrder()
+        +viewOrderHistory()
+        +writeReview()
+    }
+
+    class Member {
+        +int member_id
+        +string business_name
+        +string[] menu_items
+        +addMenuItem()
+        +updateOrderStatus()
+        +viewEarnings()
+    }
+
+    class Dish {
+        +int dish_id
+        +string name
+        +string description
+        +float price
+        +string[] ingredients
+        +updateDetails()
+    }
+
+    class Order {
+        +int order_id
+        +int customer_id
+        +int[] items
+        +string status
+        +float total
+        +placeOrder()
+        +updateStatus()
+    }
+
+    User <|-- Customer
+    User <|-- Member
+    Member "1" -- "*" Dish : offers
+    Order "1" -- "*" Dish : contains
+    Customer "1" -- "*" Order : places
+
+   Object Diagram
+   classDiagram
+    class customer1 {
+        user_id: 101
+        username: "john_doe"
+        email: "john@example.com"
+        user_type: "customer"
+        status: "active"
+    }
+
+    class member1 {
+        user_id: 201
+        username: "tasty_meals"
+        email: "contact@tastymeals.com"
+        user_type: "member"
+        status: "active"
+        business_name: "Tasty Meals"
+    }
+
+    class dish1 {
+        dish_id: 301
+        name: "Veg Biryani"
+        price: 12.99
+        status: "available"
+    }
+
+    class order1 {
+        order_id: 401
+        customer_id: 101
+        status: "delivered"
+        total: 25.98
+        items: [301, 302]
+    }
+
+    customer1 -- order1 : places
+    member1 -- dish1 : offers
+    order1 -- dish1 : contains
+
+     Component Diagram
+
+     componentDiagram
+    component "Web Frontend" {
+        [Customer Portal]
+        [Member Portal]
+        [Admin Dashboard]
+    }
+
+    component "Backend Services" {
+        [API Gateway]
+        [User Service]
+        [Order Service]
+        [Payment Service]
+        [Notification Service]
+    }
+
+    component "Data Storage" {
+        [User Database]
+        [Menu Database]
+        [Order Database]
+    }
+
+    component "External Services" {
+        [Payment Gateway]
+        [Email Service]
+        [SMS Service]
+    }
+
+    [Customer Portal] --> [API Gateway]
+    [Member Portal] --> [API Gateway]
+    [Admin Dashboard] --> [API Gateway]
+    
+    [API Gateway] --> [User Service]
+    [API Gateway] --> [Order Service]
+    [API Gateway] --> [Payment Service]
+    
+    [User Service] --> [User Database]
+    [Order Service] --> [Order Database]
+    [Payment Service] --> [Payment Gateway]
+    [Notification Service] --> [Email Service]
+    [Notification Service] --> [SMS Service]
+
+    State Chart Diagram
+Order State Machine
+
+stateDiagram-v2
+    [*] --> Pending
+    Pending --> Confirmed: Payment Received
+    Confirmed --> Preparing: Kitchen starts
+    Preparing --> ReadyForPickup: Food ready
+    ReadyForPickup --> InTransit: Driver assigned
+    InTransit --> Delivered: Customer receives
+    InTransit --> Failed: Delivery failed
+    Failed --> InTransit: Retry delivery
+    Delivered --> [*]
+    Failed --> [*]
+    
+    state Payment_State {
+        [*] --> Awaiting
+        Awaiting --> Paid: Payment successful
+        Awaiting --> Failed: Payment failed
+        Failed --> Awaiting: Retry payment
+    }
+    
+    Pending --> Payment_State
+
+    . Use Case Diagram (Expanded)
+
+    useCaseDiagram
+    actor Customer
+    actor Member
+    actor Admin
+    actor "Payment Gateway" as PG
+    
+    rectangle PackAndPlate {
+        Customer --> (Browse Menu)
+        Customer --> (Place Order)
+        Customer --> (Track Order)
+        Customer --> (Make Payment)
+        Customer --> (Write Review)
+        Customer --> (Manage Profile)
+        
+        Member --> (Manage Menu)
+        Member --> (View Orders)
+        Member --> (Update Order Status)
+        Member --> (View Earnings)
+        
+        Admin --> (Manage Users)
+        Admin --> (View Reports)
+        Admin --> (System Configuration)
+        
+        (Make Payment) ..> PG : <<include>>
+        (Place Order) ..> (Make Payment) : <<include>>
+    }
+
+     Activity Diagram - Order Processing
+
+     flowchart TD
+    A[Start] --> B[Browse Menu]
+    B --> C{Select Items?}
+    C -->|Yes| D[Add to Cart]
+    C -->|No| B
+    D --> E{Continue Shopping?}
+    E -->|Yes| B
+    E -->|No| F[Proceed to Checkout]
+    F --> G[Enter Delivery Address]
+    G --> H[Select Payment Method]
+    H --> I{Payment Success?}
+    I -->|Yes| J[Confirm Order]
+    I -->|No| K[Show Error]
+    K --> H
+    J --> L[Send Confirmation]
+    L --> M[End]
+
+    Deployment Diagram
+
+    deploymentDiagram
+    node "Web Server" {
+        [Nginx]
+    }
+    
+    node "Application Server" {
+        [Node.js]
+    }
+    
+    node "Database Server" {
+        [MySQL]
+        [Redis Cache]
+    }
+    
+    node "External Services" {
+        [AWS S3]
+        [Stripe]
+        [Twilio]
+    }
+    
+    [User] --> |HTTPS| [Nginx]
+    [Nginx] --> |Proxy| [Node.js]
+    [Node.js] --> |Read/Write| [MySQL]
+    [Node.js] --> |Cache| [Redis Cache]
+    [Node.js] --> |Store Files| [AWS S3]
+    [Node.js] --> |Process Payments| [Stripe]
+    [Node.js] --> |Send SMS| [Twilio]
+
+    

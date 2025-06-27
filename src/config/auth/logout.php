@@ -1,38 +1,75 @@
 <?php
-$allowed_origins = array(
-    "http://localhost:3000",
-    "http://packandplate29febreact.rf.gd"
-);
+// Set security headers
+header('Access-Control-Allow-Origin: http://localhost:3000');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Accept, X-Requested-With');
+header('Content-Type: application/json');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+header('X-Content-Type-Options: nosniff');
+header('X-Frame-Options: DENY');
+header('X-XSS-Protection: 1; mode=block');
 
-$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
-
-if (in_array($origin, $allowed_origins)) {
-    header("Access-Control-Allow-Origin: " . $origin);
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
 }
 
-header("Access-Control-Allow-Methods: POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Access-Control-Allow-Credentials: true");
-header('Content-Type: application/json');
-
-// Start session
+// Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit(0);
-}
+// Clear all session variables
+$_SESSION = [];
 
-// Clear session data
-$_SESSION = array();
+// Delete the session cookie
+if (ini_get('session.use_cookies')) {
+    $params = session_get_cookie_params();
+    setcookie(
+        session_name(),
+        '',
+        time() - 42000,
+        $params['path'],
+        $params['domain'],
+        $params['secure'],
+        $params['httponly']
+    );
+}
 
 // Destroy the session
 session_destroy();
 
-// Return success response
+// Clear any other auth cookies
+$cookies = [
+    'PHPSESSID',
+    'remember_me',
+    'auth_token',
+    'XSRF-TOKEN'
+];
+
+foreach ($cookies as $cookie) {
+    if (isset($_COOKIE[$cookie])) {
+        setcookie($cookie, '', time() - 3600, '/', $_SERVER['HTTP_HOST'], false, true);
+    }
+    setcookie($cookie, '', time() - 3600, '/');
+}
+
+// Clear output buffer to prevent any accidental output
+if (ob_get_level()) {
+    ob_clean();
+}
+
+// Send success response
+http_response_code(200);
 echo json_encode([
     'success' => true,
-    'message' => 'Logged out successfully'
+    'message' => 'Successfully logged out',
+    'timestamp' => time()
 ]);
+
+exit();
 ?>
