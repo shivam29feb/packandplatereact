@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './Login.module.css';
-import { useAuth, UserType } from '../../../../context/AuthContext';
+import { useAuth } from '../../../../context/AuthContext';
 import LoginForm from '../../../organisms/LoginForm/LoginForm';
 import Button from '../../../atoms/Button/Button';
 import Typography from '../../../atoms/Typography/Typography';

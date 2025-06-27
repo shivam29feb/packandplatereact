@@ -163,6 +163,20 @@
         -o-border-radius:4px;
     }
 
+    .passwordInputContainer {
+        position: relative;
+        width: 100%;
+    }
+
+    .passwordToggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: var(--blacks--black-600);
+    }
+
     .signupFormContainer form .loginContainer{
         margin-top: 16px;
         margin-bottom:16px;

@@ -49,6 +49,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   
   const clearError = () => setError('');
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     

@@ -69,7 +69,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     console.log('Email:', email, 'UserType:', userType);
     setIsLoading(true);
     setError(null);
-    
+
     try {
       let response: { success: boolean; message?: string; user?: any };
       

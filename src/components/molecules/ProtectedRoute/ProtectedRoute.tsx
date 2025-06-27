@@ -10,15 +10,15 @@ interface ProtectedRouteProps {
 
 /**
  * ProtectedRoute component that restricts access to routes based on authentication and user role
- * 
+ *
  * @param children - The components to render if the user is authenticated and authorized
  * @param allowedRoles - Optional array of roles that are allowed to access this route
  * @param redirectPath - Optional path to redirect to if the user is not authenticated or authorized
  */
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ 
-  children, 
-  allowedRoles = [], 
-  redirectPath = '/login' 
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
+  children,
+  allowedRoles = [],
+  redirectPath = '/login'
 }) => {
   const { user, isAuthenticated } = useAuth();
   const location = useLocation();
